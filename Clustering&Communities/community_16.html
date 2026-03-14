@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Raleway, sans-serif; overflow: hidden; }
+  #controls { 
+    position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 100;
+    background: rgba(255,255,255,0.95); padding: 6px 12px; border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 13px;
+  }
+  #community-select {
+    font-family: Raleway, sans-serif; font-size: 13px; padding: 4px 8px;
+    border: 1px solid #ccc; border-radius: 4px; max-width: 350px;
+  }
+  #graph { width: 100%; height: 100vh; }
+</style>
+</head>
+<body>
+<div id="controls">
+  <label for="community-select" style="font-weight:600; color:#1a365d;">Community: </label>
+  <select id="community-select" onchange="var v=this.value; window.location.href='community_'+v.padStart(2,'0')+'.html';">
+    <option value="0">Management & Professional Services (65)</option>
+    <option value="1">Manufacturing & Production (56)</option>
+    <option value="2">Administrative & Clerical Support (39)</option>
+    <option value="3">Sales & Customer Service (39)</option>
+    <option value="4">Technology & Engineering (38)</option>
+    <option value="5">Construction & Manual Trades (37)</option>
+    <option value="6">Maintenance & Repair Services (30)</option>
+    <option value="7">Healthcare Practitioners & Support (29)</option>
+    <option value="8">Social & Community Services (26)</option>
+    <option value="9">Agriculture & Groundskeeping (25)</option>
+    <option value="10">Education & Training (23)</option>
+    <option value="11">Transportation & Mechanics (22)</option>
+    <option value="12">Food Service & Retail (19)</option>
+    <option value="13">Healthcare Technicians (17)</option>
+    <option value="14">Science & Inspection (17)</option>
+    <option value="15">Protective Services (15)</option>
+    <option value="16" selected>Personal Care & Service (7)</option>
+    <option value="17">Legal Services (6)</option>
+    <option value="18">Arts, Entertainment & Media (5)</option>
+    <option value="19">Human Resources & Business Support (5)</option>
+    <option value="20">Dental & Oral Health (5)</option>
+  </select>
+</div>
+<div id="graph"></div>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<script>
+Plotly.newPlot("graph", [{"hoverinfo": "none", "line": {"width": 1.2}, "mode": "lines", "showlegend": false, "opacity": 0.25, "x": [-0.37356405940556225, -0.43768928135038243, null, -0.37356405940556225, -0.3974773238733353, null, -0.3777309796264714, -0.2786055120825988, null, -0.2786055120825988, -0.43768928135038243, null, -0.2786055120825988, -0.4508472224102195, null, -0.3974773238733353, -0.43768928135038243, null, -0.3974773238733353, -0.2786055120825988, null, -0.4508472224102195, -0.43768928135038243, null, -0.4508472224102195, -0.2786055120825988, null, -0.5571999783029907, -0.2786055120825988, null, -0.5571999783029907, -0.43768928135038243, null, -0.43768928135038243, -0.2786055120825988, null, -0.43768928135038243, -0.5571999783029907, null, -0.43768928135038243, -0.4508472224102195, null], "y": [0.20129549354564638, 0.10877657410831518, null, 0.20129549354564638, 0.07789377755238709, null, -0.3900737443527056, 0.02117978415331627, null, 0.02117978415331627, 0.10877657410831518, null, 0.02117978415331627, 0.15915903153983468, null, 0.07789377755238709, 0.10877657410831518, null, 0.07789377755238709, 0.02117978415331627, null, 0.15915903153983468, 0.10877657410831518, null, 0.15915903153983468, 0.02117978415331627, null, 0.15269044219621927, 0.02117978415331627, null, 0.15269044219621927, 0.10877657410831518, null, 0.10877657410831518, 0.02117978415331627, null, 0.10877657410831518, 0.15269044219621927, null, 0.10877657410831518, 0.15915903153983468, null], "z": [0.5211355726370838, 0.48808959399053153, null, 0.5211355726370838, 0.6179979215172638, null, 0.4877416488913773, 0.3561348587729963, null, 0.3561348587729963, 0.48808959399053153, null, 0.3561348587729963, 0.44178730084696494, null, 0.6179979215172638, 0.48808959399053153, null, 0.6179979215172638, 0.3561348587729963, null, 0.44178730084696494, 0.48808959399053153, null, 0.44178730084696494, 0.3561348587729963, null, 0.3851886674278777, 0.3561348587729963, null, 0.3851886674278777, 0.48808959399053153, null, 0.48808959399053153, 0.3561348587729963, null, 0.48808959399053153, 0.3851886674278777, null, 0.48808959399053153, 0.44178730084696494, null], "type": "scatter3d"}, {"hoverinfo": "text", "hovertext": ["<b>Other Personal Appearance Workers</b><br><b>Inflow:</b> 0.0% &nbsp;|&nbsp; <b>Outflow:</b> 28.0%<br><b>Net:</b> -28.0%<br>Internal: 0.0% in / 23.6% out<br>External: 0.0% in / 4.4% out", "<b>Massage Therapists</b><br><b>Inflow:</b> 0.0% &nbsp;|&nbsp; <b>Outflow:</b> 11.9%<br><b>Net:</b> -11.9%<br>Internal: 0.0% in / 5.4% out<br>External: 0.0% in / 6.5% out", "<b>Supervisors Of Personal Care And Service Workers</b><br><b>Inflow:</b> 32.1% &nbsp;|&nbsp; <b>Outflow:</b> 28.5%<br><b>Net:</b> +3.5%<br>Internal: 28.4% in / 18.1% out<br>External: 3.6% in / 10.5% out", "<b>Skincare Specialists</b><br><b>Inflow:</b> 10.3% &nbsp;|&nbsp; <b>Outflow:</b> 15.4%<br><b>Net:</b> -5.1%<br>Internal: 10.3% in / 12.6% out<br>External: 0.0% in / 2.7% out", "<b>Barbers</b><br><b>Inflow:</b> 8.1% &nbsp;|&nbsp; <b>Outflow:</b> 24.5%<br><b>Net:</b> -16.4%<br>Internal: 8.1% in / 21.2% out<br>External: 0.0% in / 3.3% out", "<b>Manicurists And Pedicurists</b><br><b>Inflow:</b> 4.6% &nbsp;|&nbsp; <b>Outflow:</b> 16.7%<br><b>Net:</b> -12.1%<br>Internal: 4.6% in / 13.3% out<br>External: 0.0% in / 3.5% out", "<b>Hairdressers, Hairstylists, And Cosmetologists</b><br><b>Inflow:</b> 58.2% &nbsp;|&nbsp; <b>Outflow:</b> 15.5%<br><b>Net:</b> +42.7%<br>Internal: 58.2% in / 15.5% out<br>External: 0.0% in / 0.0% out"], "marker": {"cmax": 42.733614838825716, "cmin": -42.733614838825716, "color": [-28.029234236726285, -11.868424108648894, 3.5324983105133683, -5.050215775052145, -16.401269768766173, -12.146629048365387, 42.733614838825716], "colorbar": {"len": 0.4, "thickness": 15, "x": 1.02, "y": 0.5, "title": {"text": "Net Flow", "font": {"size": 10, "family": "Raleway"}}, "tickfont": {"size": 9, "family": "Raleway"}}, "colorscale": [[0.0, "rgb(103,0,31)"], [0.1, "rgb(178,24,43)"], [0.2, "rgb(214,96,77)"], [0.3, "rgb(244,165,130)"], [0.4, "rgb(253,219,199)"], [0.5, "rgb(247,247,247)"], [0.6, "rgb(209,229,240)"], [0.7, "rgb(146,197,222)"], [0.8, "rgb(67,147,195)"], [0.9, "rgb(33,102,172)"], [1.0, "rgb(5,48,97)"]], "size": [16.37219582767716, 11.545040508931818, 26.109587573361637, 15.679045016907661, 17.71824803491745, 14.376990736639097, 30.0]}, "mode": "markers+text", "text": ["Other Personal Appearance Workers", "Massage Therapists", "Supervisors Of Personal Care And Service Workers", "Skincare Specialists", "Barbers", "Manicurists And Pedicurists", "Hairdressers, Hairstylists, And Cosmetologists"], "textposition": "top center", "x": [-0.37356405940556225, -0.3777309796264714, -0.2786055120825988, -0.3974773238733353, -0.4508472224102195, -0.5571999783029907, -0.43768928135038243], "y": [0.20129549354564638, -0.3900737443527056, 0.02117978415331627, 0.07789377755238709, 0.15915903153983468, 0.15269044219621927, 0.10877657410831518], "z": [0.5211355726370838, 0.4877416488913773, 0.3561348587729963, 0.6179979215172638, 0.44178730084696494, 0.3851886674278777, 0.48808959399053153], "type": "scatter3d"}], {"margin": {"l": 0, "r": 0, "t": 50, "b": 0}, "showlegend": false, "paper_bgcolor": "white", "font": {"family": "Raleway, sans-serif", "color": "#2a3f5f"}, "scene": {"xaxis": {"showbackground": false, "showgrid": false, "zeroline": false, "showticklabels": false, "title": {"text": ""}, "showspikes": false}, "yaxis": {"showbackground": false, "showgrid": false, "zeroline": false, "showticklabels": false, "title": {"text": ""}, "showspikes": false}, "zaxis": {"showbackground": false, "showgrid": false, "zeroline": false, "showticklabels": false, "title": {"text": ""}, "showspikes": false}}, "title": {"text": "Mobility Communities \u2014 Personal Care & Service", "font": {"size": 14, "family": "Raleway, sans-serif"}}}, {responsive: true});
+</script>
+</body>
+</html>

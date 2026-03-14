@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Raleway, sans-serif; overflow: hidden; }
+  #controls { 
+    position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 100;
+    background: rgba(255,255,255,0.95); padding: 6px 12px; border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 13px;
+  }
+  #community-select {
+    font-family: Raleway, sans-serif; font-size: 13px; padding: 4px 8px;
+    border: 1px solid #ccc; border-radius: 4px; max-width: 350px;
+  }
+  #graph { width: 100%; height: 100vh; }
+</style>
+</head>
+<body>
+<div id="controls">
+  <label for="community-select" style="font-weight:600; color:#1a365d;">Community: </label>
+  <select id="community-select" onchange="var v=this.value; window.location.href='community_'+v.padStart(2,'0')+'.html';">
+    <option value="0">Management & Professional Services (65)</option>
+    <option value="1">Manufacturing & Production (56)</option>
+    <option value="2">Administrative & Clerical Support (39)</option>
+    <option value="3">Sales & Customer Service (39)</option>
+    <option value="4">Technology & Engineering (38)</option>
+    <option value="5">Construction & Manual Trades (37)</option>
+    <option value="6">Maintenance & Repair Services (30)</option>
+    <option value="7">Healthcare Practitioners & Support (29)</option>
+    <option value="8">Social & Community Services (26)</option>
+    <option value="9">Agriculture & Groundskeeping (25)</option>
+    <option value="10">Education & Training (23)</option>
+    <option value="11">Transportation & Mechanics (22)</option>
+    <option value="12">Food Service & Retail (19)</option>
+    <option value="13">Healthcare Technicians (17)</option>
+    <option value="14">Science & Inspection (17)</option>
+    <option value="15">Protective Services (15)</option>
+    <option value="16">Personal Care & Service (7)</option>
+    <option value="17">Legal Services (6)</option>
+    <option value="18">Arts, Entertainment & Media (5)</option>
+    <option value="19" selected>Human Resources & Business Support (5)</option>
+    <option value="20">Dental & Oral Health (5)</option>
+  </select>
+</div>
+<div id="graph"></div>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<script>
+Plotly.newPlot("graph", [{"hoverinfo": "none", "line": {"width": 1.2}, "mode": "lines", "showlegend": false, "opacity": 0.25, "x": [0.4210270390768042, 0.26516802186502947, null, 0.4210270390768042, 0.3380196540097348, null, 0.4210270390768042, 0.3684722117553132, null, 0.3380196540097348, 0.3684722117553132, null, 0.3380196540097348, 0.31577961043735786, null, 0.26516802186502947, 0.3380196540097348, null, 0.3684722117553132, 0.3380196540097348, null, 0.3684722117553132, 0.31577961043735786, null, 0.31577961043735786, 0.3380196540097348, null, 0.31577961043735786, 0.3684722117553132, null], "y": [-0.19898368621872822, -0.10689329423421608, null, -0.19898368621872822, -0.2161660790431751, null, -0.19898368621872822, -0.17431457283963236, null, -0.2161660790431751, -0.17431457283963236, null, -0.2161660790431751, -0.2530059540012847, null, -0.10689329423421608, -0.2161660790431751, null, -0.17431457283963236, -0.2161660790431751, null, -0.17431457283963236, -0.2530059540012847, null, -0.2530059540012847, -0.2161660790431751, null, -0.2530059540012847, -0.17431457283963236, null], "z": [0.619739414506399, 0.5768233588686136, null, 0.619739414506399, 0.46800684612027277, null, 0.619739414506399, 0.43830527338267056, null, 0.46800684612027277, 0.43830527338267056, null, 0.46800684612027277, 0.5553686802811796, null, 0.5768233588686136, 0.46800684612027277, null, 0.43830527338267056, 0.46800684612027277, null, 0.43830527338267056, 0.5553686802811796, null, 0.5553686802811796, 0.46800684612027277, null, 0.5553686802811796, 0.43830527338267056, null], "type": "scatter3d"}, {"hoverinfo": "text", "hovertext": ["<b>Compensation And Benefits Managers</b><br><b>Inflow:</b> 0.0% &nbsp;|&nbsp; <b>Outflow:</b> 32.9%<br><b>Net:</b> -32.9%<br>Internal: 0.0% in / 32.9% out<br>External: 0.0% in / 0.0% out", "<b>Human Resources Workers</b><br><b>Inflow:</b> 87.1% &nbsp;|&nbsp; <b>Outflow:</b> 19.6%<br><b>Net:</b> +67.5%<br>Internal: 82.9% in / 14.8% out<br>External: 4.1% in / 4.8% out", "<b>Compensation, Benefits, And Job Analysis Specialists</b><br><b>Inflow:</b> 11.9% &nbsp;|&nbsp; <b>Outflow:</b> 19.6%<br><b>Net:</b> -7.7%<br>Internal: 11.9% in / 9.6% out<br>External: 0.0% in / 10.0% out", "<b>Human Resources Managers</b><br><b>Inflow:</b> 27.1% &nbsp;|&nbsp; <b>Outflow:</b> 33.9%<br><b>Net:</b> -6.7%<br>Internal: 27.1% in / 27.5% out<br>External: 0.0% in / 6.4% out", "<b>Human Resources Assistants, Except Payroll And Timekeeping</b><br><b>Inflow:</b> 7.1% &nbsp;|&nbsp; <b>Outflow:</b> 49.6%<br><b>Net:</b> -42.5%<br>Internal: 7.1% in / 44.4% out<br>External: 0.0% in / 5.2% out"], "marker": {"cmax": 67.48369646369437, "cmin": -67.48369646369437, "color": [-32.87672283039391, 67.48369646369437, -7.670453553888775, -6.725577564044638, -42.46337953587512], "colorbar": {"len": 0.4, "thickness": 15, "x": 1.02, "y": 0.5, "title": {"text": "Net Flow", "font": {"size": 10, "family": "Raleway"}}, "tickfont": {"size": 9, "family": "Raleway"}}, "colorscale": [[0.0, "rgb(103,0,31)"], [0.1, "rgb(178,24,43)"], [0.2, "rgb(214,96,77)"], [0.3, "rgb(244,165,130)"], [0.4, "rgb(253,219,199)"], [0.5, "rgb(247,247,247)"], [0.6, "rgb(209,229,240)"], [0.7, "rgb(146,197,222)"], [0.8, "rgb(67,147,195)"], [0.9, "rgb(33,102,172)"], [1.0, "rgb(5,48,97)"]], "size": [14.780790433516266, 30.0, 14.4915642152495, 20.58487307352897, 19.70000497572028]}, "mode": "markers+text", "text": ["Compensation And Benefits Managers", "Human Resources Workers", "Compensation, Benefits, And Job Analysis Specialists", "Human Resources Managers", "Human Resources Assistants, Except Payroll And Timekeeping"], "textposition": "top center", "x": [0.4210270390768042, 0.3380196540097348, 0.26516802186502947, 0.3684722117553132, 0.31577961043735786], "y": [-0.19898368621872822, -0.2161660790431751, -0.10689329423421608, -0.17431457283963236, -0.2530059540012847], "z": [0.619739414506399, 0.46800684612027277, 0.5768233588686136, 0.43830527338267056, 0.5553686802811796], "type": "scatter3d"}], {"margin": {"l": 0, "r": 0, "t": 50, "b": 0}, "showlegend": false, "paper_bgcolor": "white", "font": {"family": "Raleway, sans-serif", "color": "#2a3f5f"}, "scene": {"xaxis": {"showbackground": false, "showgrid": false, "zeroline": false, "showticklabels": false, "title": {"text": ""}, "showspikes": false}, "yaxis": {"showbackground": false, "showgrid": false, "zeroline": false, "showticklabels": false, "title": {"text": ""}, "showspikes": false}, "zaxis": {"showbackground": false, "showgrid": false, "zeroline": false, "showticklabels": false, "title": {"text": ""}, "showspikes": false}}, "title": {"text": "Mobility Communities \u2014 Human Resources & Business Support", "font": {"size": 14, "family": "Raleway, sans-serif"}}}, {responsive: true});
+</script>
+</body>
+</html>

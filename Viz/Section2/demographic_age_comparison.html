@@ -1,0 +1,65 @@
+<html>
+<head><meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+        <div id="age-chart" class="plotly-graph-div" style="height:420px; width:100%;"></div>
+        <script type="text/javascript">
+            Plotly.newPlot("age-chart", [
+                {
+                    name: "Moderate",
+                    type: "bar",
+                    orientation: "h",
+                    y: ["16-24", "25-34", "35-44", "45-54", "55-64", "65+"],
+                    x: [25.2, 19.5, 17.8, 17.8, 18.5, 18.9],
+                    text: ["25.2%", "19.5%", "17.8%", "17.8%", "18.5%", "18.9%"],
+                    textposition: "outside",
+                    marker: { color: "#2b6cb0" },
+                    textfont: { size: 11 },
+                    hovertemplate: "<b>%{y}</b><br>Moderate: %{x:,.1f}%<extra></extra>"
+                },
+                {
+                    name: "Aggressive",
+                    type: "bar",
+                    orientation: "h",
+                    y: ["16-24", "25-34", "35-44", "45-54", "55-64", "65+"],
+                    x: [31.3, 32.5, 32.2, 32.4, 32.5, 32.9],
+                    text: ["31.3%", "32.5%", "32.2%", "32.4%", "32.5%", "32.9%"],
+                    textposition: "outside",
+                    marker: { color: "#90cdf4" },
+                    textfont: { size: 11 },
+                    hovertemplate: "<b>%{y}</b><br>Aggressive: %{x:,.1f}%<extra></extra>"
+                }
+            ], {
+                barmode: "group",
+                font: { family: "Raleway, sans-serif", color: "#2a3f5f" },
+                title: { text: "Mean AI Exposure by Age Group", font: { size: 16 } },
+                xaxis: { title: { text: "Mean AI Exposure (%)", font: { size: 13 } }, range: [0, 42], gridcolor: "#EBF0F8" },
+                yaxis: { automargin: true, categoryorder: "array", categoryarray: ["65+", "55-64", "45-54", "35-44", "25-34", "16-24"] },
+                legend: { orientation: "h", y: 1.12, x: 0.5, xanchor: "center" },
+                margin: { l: 70, r: 60, t: 70, b: 60 },
+                hoverlabel: { bgcolor: "rgba(255,255,255,0.85)", bordercolor: "#2b6cb0", font: { family: "Raleway, sans-serif", size: 12 } },
+                paper_bgcolor: "white",
+                plot_bgcolor: "white",
+                height: 420,
+                separators: ".,",
+                annotations: [{
+                    x: 31.3, y: "16-24",
+                    ax: 50, ay: -35,
+                    text: "Youngest workers: highest<br>exposure under both scenarios",
+                    showarrow: true,
+                    arrowhead: 2,
+                    arrowcolor: "#2b6cb0",
+                    font: { size: 10, color: "#2b6cb0" },
+                    bgcolor: "rgba(235,244,255,0.9)",
+                    bordercolor: "#2b6cb0",
+                    borderwidth: 1
+                }]
+            }, { responsive: true });
+        </script>
+    </div>
+</body>
+</html>

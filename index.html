@@ -542,7 +542,7 @@
     <!-- ═══════════════════════════════════════════════════════════ -->
     <section class="section" id="executive-summary" style="background: linear-gradient(135deg, #f7fafc 0%, #ebf4ff 100%); border-left: 4px solid var(--navy); padding: 2rem 2.5rem;">
         <h2 style="font-size:1.3rem; margin-bottom:1rem;">Executive Summary</h2>
-        <p>Using 595,000 occupational transitions from the Current Population Survey (2019&ndash;2026) overlaid with task-level AI exposure scores, we go beyond measuring <em>who</em> is exposed to AI automation to ask <em>who can escape</em>. Our central finding: <strong>nearly half of the most AI-exposed occupations are &ldquo;trapped&rdquo;</strong>&mdash;their workers&rsquo; most common career moves lead to jobs that are equally threatened. Women, young workers, and clerical employees are disproportionately concentrated in these trapped roles. Under aggressive automation assumptions&mdash;which better reflect the current LLM era&mdash;net worker flow away from AI-exposed occupations turned negative for the first time in 2025, though concurrent tech layoffs and federal workforce reductions make causal attribution uncertain. We identify specific reskilling bridges (clerical&rarr;healthcare, retail&rarr;skilled trades, admin&rarr;technical operations) derived from actual transition pathways, and recommend targeted policy intervention before market adjustment leaves trapped workers behind.</p>
+        <p>Using 595,000 occupational transitions from the Current Population Survey (2019&ndash;2026) overlaid with task-level AI exposure scores, we go beyond measuring <em>who</em> is exposed to AI automation to ask <em>who can escape</em>. Our central finding: under aggressive assumptions, <strong>nearly half (47.8%) of occupations where AI can automate more than 45% of tasks are &ldquo;trapped&rdquo;</strong>&mdash;their workers&rsquo; most common career moves lead to jobs that are equally threatened. Women, young workers, and clerical employees are disproportionately concentrated in these trapped roles. Under aggressive automation assumptions&mdash;which better reflect the current LLM era&mdash;net worker flow away from AI-exposed occupations turned negative for the first time in 2025, though concurrent tech layoffs and federal workforce reductions make causal attribution uncertain. We identify specific reskilling bridges (clerical&rarr;healthcare, retail&rarr;skilled trades, admin&rarr;technical operations) derived from actual transition pathways, and recommend targeted policy intervention before market adjustment leaves trapped workers behind.</p>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════ -->
@@ -567,7 +567,7 @@
             <ul>
                 <li><strong>AI exposure is sharply concentrated:</strong> Office and administrative support workers face 44.4% mean task exposure, with nearly three-quarters of their workforce in the highest-risk quintile. Under aggressive assumptions, Legal occupations surge to 72.0%.</li>
                 <li><strong>Women face 29% higher baseline exposure than men</strong> (22.1% vs. 17.1%), driven by overrepresentation in clerical roles. Year-to-year net flows show periods where women move <em>out</em> of AI-exposed roles faster than men&mdash;and periods where the reverse is true&mdash;but this volatility has not erased the structural gap.</li>
-                <li><strong>Nearly half (46.7%) of high-AI occupations are "trapped":</strong> their most common career transitions lead to destinations that are equally exposed to automation, leaving workers with no viable escape route.</li>
+                <li><strong>Under aggressive assumptions, 47.8% of high-AI occupations are "trapped":</strong> their most common career transitions lead to destinations where AI can also automate more than 45% of tasks, leaving workers with no viable escape route. Under moderate assumptions, the trapped rate is lower (23.7%) because fewer occupations cross the 45% threshold&mdash;but the pattern is clear: as AI capabilities expand, both the number of exposed occupations and the share that are trapped increase sharply.</li>
                 <li><strong>A possible inflection in 2025:</strong> under the aggressive scenario, net worker flow toward AI-exposed cognitive occupations <strong>inverted for the first time</strong>, with &minus;1.6M weighted transitions away from high-AI roles. This may signal market adaptation to AI risk&mdash;but concurrent tech layoffs and federal workforce reductions complicate causal attribution. Early 2026 data shows a partial rebound.</li>
             </ul>
         </div>
@@ -801,10 +801,10 @@
         <div class="section-label">Finding 3</div>
         <h2>The Trapped Worker Problem</h2>
         <p>Vulnerability is not just about where workers <em>are</em>&mdash;it is about where they <em>can go</em>. Using the origin-destination transition rate matrix (which captures the actual frequency of occupational moves observed in CPS panels), we identify the most common career transitions available to workers in high-AI occupations and measure the AI exposure of those destinations.</p>
-        <p>We define a "trapped" occupation as one meeting two criteria: (1) its own AI exposure places it in the highest quintile (Q5), and (2) the weighted average AI exposure of its top five transition destinations also falls in Q5. In these occupations, the most common career moves lead to jobs that are equally threatened&mdash;workers are mobile, but they cannot escape.</p>
+        <p>We define a "trapped" occupation as one meeting two criteria: (1) its own AI exposure exceeds 45%&mdash;meaning nearly half of its core tasks are plausibly automatable&mdash;and (2) the weighted average AI exposure of its top five transition destinations also exceeds 45%. We use this fixed threshold rather than a relative quintile cutoff because it produces consistent comparisons across scenarios: the same absolute standard of vulnerability applies regardless of the AI capability assumptions. In these occupations, the most common career moves lead to jobs that are equally threatened&mdash;workers are mobile, but they cannot escape.</p>
 
         <div class="callout">
-            Under aggressive assumptions, <strong>32 of 92 high-AI occupations (34.8%) are trapped</strong>; under moderate assumptions, <strong>43 of 92 (46.7%)</strong>. The higher trapped rate under the moderate scenario reflects a threshold effect: when only routine tasks are at risk (moderate), the Q5 occupations cluster tightly in a narrow band of clerical and administrative roles whose escape routes lead to equally routine-exposed jobs. Under aggressive assumptions, the Q5 set expands to include more diverse cognitive-professional occupations, some of which have viable transitions to lower-exposure destinations. In both scenarios, fewer than one in three workers in Q5 can transition to occupations below the median exposure level.
+            Under <strong>moderate assumptions</strong>, 38 occupations exceed the 45% exposure threshold, and <strong>9 of them (23.7%) are trapped</strong>&mdash;a small but concentrated cluster of postal workers, medical secretaries, and legal administrative assistants whose escape routes loop back to equally exposed clerical roles. Under <strong>aggressive assumptions</strong>&mdash;which better reflect the current AI frontier&mdash;the picture is dramatically worse: <strong>92 occupations exceed 45% exposure, and 44 of them (47.8%) are trapped</strong>. As AI capabilities expand from routine tasks into moderately complex cognitive work, both the number of high-exposure occupations and the share with no viable escape routes increase sharply. Credit analysts, paralegals, tax preparers, and payroll clerks join the trapped category as their transition destinations&mdash;other financial, legal, and administrative roles&mdash;are themselves captured by the expanding automation frontier.
         </div>
 
         <p style="font-weight:600; font-size:0.95rem; margin-bottom:0.5rem; color:var(--navy);">Selected cases of trapped and escapable occupations</p>
@@ -819,51 +819,51 @@
             </thead>
             <tbody>
                 <tr class="highlight">
-                    <td>Court, Municipal, and License Clerks</td>
-                    <td>89.3%</td>
-                    <td>30.0%</td>
+                    <td>Credit Authorizers, Checkers, and Clerks</td>
+                    <td>99.2%</td>
+                    <td>48.5%</td>
                     <td style="color:var(--accent);font-weight:600;">Trapped</td>
                 </tr>
                 <tr class="highlight">
-                    <td>Library Technicians</td>
-                    <td>79.1%</td>
-                    <td>46.1%</td>
+                    <td>Paralegals and Legal Assistants</td>
+                    <td>98.4%</td>
+                    <td>58.3%</td>
                     <td style="color:var(--accent);font-weight:600;">Trapped</td>
                 </tr>
                 <tr class="highlight">
-                    <td>Postal Service Mail Carriers</td>
-                    <td>74.9%</td>
-                    <td>50.9%</td>
+                    <td>Title Examiners, Abstractors, and Searchers</td>
+                    <td>96.1%</td>
+                    <td>77.3%</td>
                     <td style="color:var(--accent);font-weight:600;">Trapped</td>
                 </tr>
                 <tr class="highlight">
-                    <td>Cashiers</td>
-                    <td>68.2%</td>
-                    <td>34.6%</td>
+                    <td>Tax Preparers</td>
+                    <td>95.6%</td>
+                    <td>66.2%</td>
                     <td style="color:var(--accent);font-weight:600;">Trapped</td>
                 </tr>
                 <tr class="highlight">
-                    <td>Pharmacy Aides</td>
-                    <td>66.5%</td>
-                    <td>44.5%</td>
+                    <td>Payroll and Timekeeping Clerks</td>
+                    <td>92.8%</td>
+                    <td>57.0%</td>
                     <td style="color:var(--accent);font-weight:600;">Trapped</td>
                 </tr>
                 <tr class="highlight">
-                    <td>Insurance Claims &amp; Policy Processing Clerks</td>
-                    <td>65.4%</td>
-                    <td>40.0%</td>
+                    <td>Credit Analysts</td>
+                    <td>90.4%</td>
+                    <td>55.1%</td>
                     <td style="color:var(--accent);font-weight:600;">Trapped</td>
                 </tr>
                 <tr>
-                    <td>Tax Preparers</td>
-                    <td>62.2%</td>
-                    <td>16.5%</td>
+                    <td>Medical Transcriptionists</td>
+                    <td>100.0%</td>
+                    <td>43.4%</td>
                     <td style="color:var(--green);font-weight:600;">Escapable</td>
                 </tr>
                 <tr>
-                    <td>Surveying &amp; Mapping Technicians</td>
-                    <td>58.6%</td>
-                    <td>16.9%</td>
+                    <td>Interpreters and Translators</td>
+                    <td>97.4%</td>
+                    <td>37.6%</td>
                     <td style="color:var(--green);font-weight:600;">Escapable</td>
                 </tr>
             </tbody>
@@ -1025,7 +1025,7 @@
 
         <p><strong>First</strong>, AI exposure follows a cognitive gradient, not a manual one. The most exposed workers are not on factory floors but in offices, courthouses, and retail counters. This contradicts popular narratives about automation and demands a recalibration of workforce policy toward white-collar and service-sector vulnerability.</p>
 
-        <p><strong>Second</strong>, existing labor market mobility patterns are insufficient to protect exposed workers. The trapped-worker phenomenon&mdash;where nearly half of high-AI occupations offer no viable escape routes&mdash;represents a structural failure that organic market adjustment cannot resolve within an acceptable timeframe.</p>
+        <p><strong>Second</strong>, existing labor market mobility patterns are insufficient to protect exposed workers. Under aggressive assumptions, nearly half (47.8%) of occupations where AI can automate more than 45% of tasks are trapped&mdash;their workers&rsquo; most common career moves lead to equally threatened destinations. This represents a structural failure that organic market adjustment cannot resolve within an acceptable timeframe.</p>
 
         <p><strong>Third</strong>, there are signs that the labor market may be beginning to adapt&mdash;but the evidence is preliminary and the causal mechanism uncertain. Under the aggressive scenario, net worker flow toward AI-exposed cognitive occupations inverted for the first time in 2025 (&minus;1.6 million weighted transitions). This <em>could</em> signal that workers and employers are starting to price in the LLM revolution&mdash;but it also coincides with large-scale tech layoffs (2023&ndash;2024), federal workforce reductions (2025), and broader sectoral restructuring that independently displaced workers from the same occupations our AI index flags as exposed. Early 2026 data shows a partial rebound, further complicating interpretation. We flag this inflection as a signal worth monitoring, not a confirmed structural shift. If sustained, it creates a narrow policy window to complement market-driven adjustment; if it reverses, it underscores the need for more proactive intervention.</p>
 
@@ -1037,7 +1037,7 @@
             <div class="policy-card">
                 <div class="icon">1</div>
                 <h4>Targeted Reskilling for Trapped Occupations</h4>
-                <p>Nearly half of high-AI occupations lead only to equally exposed destinations. Our transition matrix identifies specific trapped clusters where intervention is most urgent and feasible:</p>
+                <p>Under aggressive assumptions, 47.8% of occupations exceeding 45% AI exposure lead only to equally exposed destinations. Our transition matrix identifies specific trapped clusters where intervention is most urgent and feasible:</p>
                 <ul style="font-size:0.9rem; margin:0.5rem 0; padding-left:1.2rem;">
                     <li><strong>Clerical &rarr; Healthcare Support:</strong> Court clerks, insurance claims processors, and library technicians (65&ndash;89% exposure) currently transition mostly to other clerical roles. Credential-bridging programs into medical records technology, health information management, or clinical administration could redirect these workers toward growing, lower-exposure healthcare roles.</li>
                     <li><strong>Retail/Cashiers &rarr; Skilled Trades:</strong> Cashiers and postal workers (68&ndash;75% exposure) are trapped in a retail-service loop. Apprenticeship pipelines into HVAC, electrical, or maintenance technician roles&mdash;occupations our data shows have low AI exposure and strong absorption capacity&mdash;offer a concrete exit.</li>
@@ -1067,7 +1067,7 @@
             <div class="policy-card">
                 <div class="icon">4</div>
                 <h4>Redesign Entry-Level Career Pathways</h4>
-                <p>Workers aged 16&ndash;24 face the highest Q5 concentration (27.6% under moderate, 31.3% under aggressive) because the default entry-level labor market&mdash;cashiers, food service, retail salespersons&mdash;sits at the core of our trapped occupational clusters. These are not stepping-stone jobs; our network data shows they loop back into equally exposed roles. Interventions should target the <em>on-ramp</em>:</p>
+                <p>Workers aged 16&ndash;24 face the highest Q5 concentration (27.6% under moderate, 21.3% under aggressive) and the highest mean exposure (25.2% moderate, 31.3% aggressive) because the default entry-level labor market&mdash;cashiers, food service, retail salespersons&mdash;sits at the core of our trapped occupational clusters. These are not stepping-stone jobs; our network data shows they loop back into equally exposed roles. Interventions should target the <em>on-ramp</em>:</p>
                 <ul style="font-size:0.9rem; margin:0.5rem 0; padding-left:1.2rem;">
                     <li><strong>Subsidized first-job programs</strong> in low-exposure growth sectors (construction, maintenance, healthcare support) rather than defaulting to retail</li>
                     <li><strong>High school career counseling reform</strong> incorporating AI exposure data&mdash;making occupational risk as visible to students as salary data</li>
@@ -1124,9 +1124,9 @@
         <p>Occupational groups in this analysis use the standard 2-digit Census occupation code prefix, mapped to 25 major groups (e.g., Management, Office &amp; Administrative Support, Sales). The Louvain community detection algorithm was applied to the full transition network in a separate analysis (Section 1), identifying 21 mobility communities. Both groupings are used where appropriate.</p>
 
         <h3>E. Trapped Worker Index</h3>
-        <p>For each occupation in the highest AI exposure quintile (Q5), we identify the top 5 transition destinations from the observed origin-destination transition rate matrix. The "weighted escape exposure" is calculated as:</p>
+        <p>For each occupation exceeding 45% AI exposure (i.e., where nearly half of core tasks are plausibly automatable), we identify the top 5 transition destinations from the observed origin-destination transition rate matrix. The "weighted escape exposure" is calculated as:</p>
         <p style="text-align:center;font-style:italic;margin:1rem 0;">Escape Exposure = &Sigma;(transition_rate<sub>i</sub> &times; AI_score<sub>dest_i</sub>) / &Sigma;(transition_rate<sub>i</sub>)</p>
-        <p>An occupation is classified as "trapped" if its weighted escape exposure also falls in Q5. Under aggressive assumptions&mdash;which better capture the current AI frontier&mdash;32 of 92 Q5 occupations (34.8%) are trapped; under moderate assumptions, 43 of 92 (46.7%). The lower trapped rate under aggressive assumptions reflects the fact that a broader range of occupations become exposed, partially diluting the concentration of trapped pathways.</p>
+        <p>An occupation is classified as "trapped" if its weighted escape exposure also exceeds 45%. We use a fixed absolute threshold (45%) rather than a relative quintile cutoff to ensure consistent comparisons across scenarios: the same standard of vulnerability applies regardless of the AI capability assumptions. Under moderate assumptions, 9 of 38 occupations above the threshold (23.7%) are trapped; under aggressive assumptions, 44 of 92 (47.8%). The pattern is intuitive: as AI capabilities expand, more occupations cross the 45% threshold <em>and</em> a larger share of them are trapped, because their transition destinations are also captured by the broadening automation frontier.</p>
 
         <h3>F. Temporal Analysis</h3>
         <p>AI exposure scores are time-invariant (measured at a single point from O*NET). Temporal patterns reflect changes in <em>worker mobility behavior</em>&mdash;whether workers are moving toward or away from high-AI occupations over time. For each transition, we compute &Delta;AI = AI(destination) &minus; AI(origin). Transitions are classified as "toward AI" (&Delta; > 0), "away from AI" (&Delta; < 0), or "lateral" (&Delta; = 0). Monthly and yearly flow volumes are population-weighted using WTFINL.</p>

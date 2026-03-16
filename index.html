@@ -953,24 +953,42 @@
         </div>
 
         <h3>Where Do the Outflows Go?</h3>
-        <p>The 2025 inversion raises an immediate question: when workers leave AI-exposed occupations, where do they land? The Sankey diagram below traces net occupation flows for 2025 under the aggressive scenario, connecting the sectors that lost workers (left, in red) to those that absorbed them (right, in green). The pattern is stark: <strong>Office &amp; Administrative Support</strong> lost 7.8 million weighted transitions, followed by <strong>Sales</strong> (&minus;4.5M), <strong>Business &amp; Finance</strong> (&minus;2.3M), and <strong>Financial Specialists</strong> (&minus;1.9M). Additional outflows come from <strong>Protective Service</strong> (&minus;0.9M), <strong>Healthcare Practitioners</strong> (&minus;0.8M), <strong>Legal</strong> (&minus;0.6M), and <strong>Computer &amp; Math</strong> (&minus;0.6M). Most of these sectors have mean AI exposure above 40%, with Legal (71.4%) and Financial Specialists (63.8%) at the top. The receiving sectors are overwhelmingly physical and manual: <strong>Construction</strong> (+5.1M, mean AI exposure 11.5%), <strong>Food Service</strong> (+4.5M, 16.7%), <strong>Management</strong> (+2.3M, 28.7%), and <strong>Healthcare Support</strong> (+2.2M, 22.8%), along with <strong>Cleaning &amp; Grounds</strong> (+2.1M), <strong>Maintenance &amp; Repair</strong> (+1.6M), <strong>Arts &amp; Entertainment</strong> (+1.0M), and <strong>Personal Care</strong> (+0.9M). Workers are not simply shuffling between similarly exposed roles; they are migrating to sectors that current AI systems cannot easily reach. This suggests the labor market may be beginning to price in AI risk, though whether this reallocation is efficient or merely reactive remains an open question.</p>
+        <p>The 2025 inversion raises an immediate question: when workers leave AI-exposed occupations, where do they land? Using CPS month-to-month transitions, we trace every worker whose AI exposure score decreased in 2025 and classify their destination into five categories. The Sankey below maps the six largest source sectors (left) to these destination types (right), revealing a more nuanced picture than a simple "cognitive to manual" narrative.</p>
+
+        <p>The data shows four distinct patterns:</p>
+        <ol>
+            <li><strong>Staying in sector, shifting down the AI ladder (27%).</strong> Over a quarter of workers who reduced their AI exposure did so without leaving their occupation group. An office clerk moves from a data-entry role to a reception desk; a sales associate shifts from an AI-assisted analytics position to a floor role. These are lateral moves within familiar sectors, not dramatic career changes.</li>
+            <li><strong>Upward mobility into Management (12%).</strong> A significant share flows into managerial roles, representing promotions rather than displacement. The largest feeders are Office &amp; Admin (2.2M), Business &amp; Finance (1.6M), and Sales (1.5M). These workers are not fleeing AI; they are being promoted into less automatable leadership positions.</li>
+            <li><strong>Lateral moves into physical and manual sectors (23%).</strong> About a quarter shift to Construction, Transportation, Maintenance &amp; Repair, and Production. The transitions are logical: couriers become truck drivers, stock clerks move to construction labor, customer service reps shift to warehouse roles. These are adjacent-skill moves into sectors where current AI has limited reach.</li>
+            <li><strong>Lateral moves into service sectors (16%).</strong> Another slice moves to Food Service, Healthcare Support, Personal Care, and Protective Service. Typical transitions include cashiers becoming fast-food workers, sales associates moving to waitstaff, and healthcare practitioners shifting to nursing assistant roles. These are predominantly face-to-face, low-AI-exposure occupations.</li>
+        </ol>
+        <p>The remaining 22% move to other cognitive sectors with lower AI exposure, suggesting that the labor market reallocation is neither purely downward nor purely into manual work. It is a complex, multi-directional adjustment where workers exploit whatever path reduces their AI exposure, whether that means a promotion, a lateral shift, or a sector change.</p>
 
         <div class="viz-container">
             <div class="viz-header">
-                Net Occupation Flows Away from AI-Exposed Roles (2025, Aggressive Scenario)
+                Where Do Workers Go When Leaving AI-Exposed Roles? (2025, Aggressive Scenario)
             </div>
-            <iframe src="Viz/Section2/sankey_outflow_2025_aggressive.html" loading="lazy" style="height:700px;"></iframe>
+            <iframe src="Viz/Section2/sankey_outflow_2025_aggressive.html" loading="lazy" style="height:640px;"></iframe>
         </div>
 
         <h3>A Closer Look: Asian Workers and the Professional-Cognitive Reversal</h3>
         <p>The aggregate pattern is especially pronounced among <strong>Asian (non-Hispanic) workers</strong>, who experienced the most dramatic reversal of any racial group. From 2020 through 2024, Asian workers showed the strongest sustained net inflow into AI-exposed occupations, peaking at +3.1% in 2022, driven by concentration in technology, engineering, finance, and professional-cognitive roles. In 2025, the direction inverted to &minus;1.9%, and early 2026 data shows a further deepening to &minus;4.2%.</p>
-        <p>The Sankey below reveals where these workers are going. The largest outflows come from <strong>Office &amp; Admin</strong> (&minus;392K), <strong>Financial Specialists</strong> (&minus;219K), <strong>Business &amp; Finance</strong> (&minus;203K), <strong>Sales</strong> (&minus;181K), and <strong>Computer &amp; Math</strong> (&minus;130K), reflecting the tech sector contraction that has disproportionately affected Asian workers. Further losses appear in <strong>Healthcare Practitioners</strong> (&minus;100K), <strong>Life/Physical/Social Science</strong> (&minus;70K), and <strong>Protective Service</strong> (&minus;61K). The destinations tell a striking story of occupational reorientation: <strong>Food Service</strong> (+420K) absorbs the most, followed by <strong>Management</strong> (+226K, likely promotions within organizations), <strong>Construction</strong> (+164K), <strong>Healthcare Support</strong> (+156K), <strong>Maintenance &amp; Repair</strong> (+129K), <strong>Personal Care</strong> (+95K), <strong>Arts &amp; Entertainment</strong> (+81K), and <strong>Cleaning &amp; Grounds</strong> (+75K). The shift from cognitive-professional to physical-manual and service sectors is sharper for Asian workers than for any other group, precisely because their prior concentration in high-AI sectors was the deepest.</p>
+        <p>The destination breakdown for Asian workers mirrors the aggregate pattern in some respects but diverges in key ways. The within-sector share is similar (27%), and the management pipeline is slightly stronger (13% vs. 12% overall), reflecting Asian workers' higher concentration in professional-cognitive roles that feed into leadership. However, a notably larger share (28%) moves to other cognitive sectors rather than physical or service work, compared to 22% for the general workforce. This suggests that Asian workers, on average, have more cognitive-adjacent options when exiting high-AI roles. The treemap below places this comparison side by side.</p>
 
         <div class="viz-container">
             <div class="viz-header">
-                Where Do Asian Workers Go? Net Flows Away from AI-Exposed Roles (2025, Aggressive)
+                Destination Typology: All Workers vs. Asian Workers (2025, Aggressive)
             </div>
-            <iframe src="Viz/Section2/sankey_asian_outflow_2025_aggressive.html" loading="lazy" style="height:720px;"></iframe>
+            <iframe src="Viz/Section2/treemap_destination_typology.html" loading="lazy" style="height:280px;"></iframe>
+        </div>
+
+        <p>The Sankey below shows the seven largest source sectors for Asian workers and how their transitions distribute across destination types.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+                Where Do Asian Workers Go When Leaving AI-Exposed Roles? (2025, Aggressive)
+            </div>
+            <iframe src="Viz/Section2/sankey_asian_outflow_2025_aggressive.html" loading="lazy" style="height:640px;"></iframe>
         </div>
 
         <div class="stats-grid">

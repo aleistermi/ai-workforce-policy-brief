@@ -481,6 +481,40 @@
             .footer { padding: 2rem; }
         }
 
+        /* --- Footnotes --- */
+        .footnote-ref {
+            font-size: 0.7em;
+            vertical-align: super;
+            line-height: 0;
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .footnote-ref:hover {
+            color: var(--accent);
+        }
+        .footnotes-section {
+            border-top: 1px solid var(--gray-200);
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+        }
+        .footnotes-section ol {
+            font-size: 0.82rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            padding-left: 1.5rem;
+        }
+        .footnotes-section li {
+            margin-bottom: 0.5rem;
+        }
+        .footnote-backref {
+            color: var(--blue);
+            text-decoration: none;
+            font-size: 0.85em;
+            margin-left: 0.3em;
+        }
+
         /* --- Print --- */
         @media print {
             .side-nav, .nav-toggle { display: none !important; }
@@ -704,7 +738,7 @@
         </div>
 
         <h3>Concentration Metrics</h3>
-        <p>The distribution of AI risk across occupation groups is highly unequal&mdash;but the nature of that inequality shifts between scenarios. Under the moderate scenario, the <strong>Gini coefficient</strong> of AI exposure is 0.50&mdash;comparable to income inequality levels in many developing economies, but applied to automation risk. A small number of sectors absorb a disproportionate share.</p>
+        <p>The distribution of AI risk across occupation groups is highly unequal&mdash;but the nature of that inequality shifts between scenarios. Under the moderate scenario, the <strong>Gini coefficient</strong><a href="#fn1" id="fn1-ref" class="footnote-ref">1</a> of AI exposure is 0.50&mdash;comparable to income inequality levels in many developing economies, but applied to automation risk. A small number of sectors absorb a disproportionate share.</p>
         <p>Under the aggressive scenario&mdash;which we argue better reflects the current AI frontier&mdash;the Gini drops to <strong>0.33</strong>. This is not good news: it means that as AI capabilities expand, risk <em>spreads</em> to previously insulated sectors (engineering, science, education), reducing concentration but <strong>broadening the population at risk</strong>. The share of the workforce in Q5 remains steady at 18&ndash;20% across both scenarios, but the <em>composition</em> of that quintile changes dramatically: under aggressive assumptions, it includes professionals who previously considered themselves safe from automation.</p>
 
         <div class="viz-comparison">
@@ -716,6 +750,12 @@
                 <div class="viz-panel-title">Aggressive Scenario</div>
                 <iframe src="Viz/Section2/community_vulnerability_scatter_ai_aggressive.html" loading="lazy" scrolling="no" style="height:680px;"></iframe>
             </div>
+        </div>
+
+        <div class="footnotes-section">
+            <ol>
+                <li id="fn1">The Gini coefficient is a standard measure of inequality ranging from 0 to 1, where 0 indicates perfect equality (every occupation group bears the same AI exposure) and 1 indicates perfect concentration (all exposure falls on a single group). Originally developed to measure income distribution across populations, we apply it here to the distribution of AI automation risk across occupation groups. A value of 0.50 means that a small number of sectors (e.g. administrative support, legal, financial) absorb a disproportionate share of total AI exposure, a level of concentration comparable to income inequality in countries such as Mexico or Brazil. The decline to 0.33 under the aggressive scenario does not signal improvement; it indicates that AI risk is spreading from a concentrated cluster into previously insulated sectors, reducing inequality in exposure but broadening the population at risk. <a href="#fn1-ref" class="footnote-backref">&uarr;</a></li>
+            </ol>
         </div>
     </section>
 
@@ -730,12 +770,10 @@
         <h3>Gender</h3>
         <p>Under the aggressive scenario, women face a mean AI exposure of <strong>35.4%</strong> versus <strong>29.5%</strong> for men&mdash;a persistent <strong>20% gap</strong>. Under the moderate scenario, the gap is even steeper: 22.1% vs. 17.1% (a 29% difference). Nearly a quarter (24.1%) of female workers are concentrated in the highest-risk quintile, compared to 13.5% of men. This disparity maps directly onto specific occupations where women are disproportionately represented:</p>
         <ul>
-            <li><strong>Office &amp; Administrative Support</strong>&mdash;the single most exposed sector at 44.4% mean exposure and 73% in Q5&mdash;is roughly 72% female. Secretaries, administrative assistants, bookkeeping clerks, and office support workers are overwhelmingly women, and these are precisely the roles most susceptible to AI-driven document processing, scheduling automation, and data entry tools.</li>
-            <li><strong>Financial Specialists</strong> (insurance claims clerks, billing specialists, payroll administrators) skew heavily female and face 4.3% Q5 concentration under moderate assumptions&mdash;rising sharply under aggressive ones as AI extends into judgment-based financial processing.</li>
-            <li><strong>Healthcare Support</strong> roles&mdash;medical records technicians, pharmacy aides, health information clerks&mdash;are predominantly held by women and carry 2.0% Q5 concentration even under the moderate scenario, with exposure climbing as AI automates coding, transcription, and records management.</li>
-            <li><strong>Sales</strong> occupations (retail salespersons, cashiers, customer service representatives)&mdash;the second most exposed group at 38.3% mean exposure&mdash;employ millions of women in roles where AI-powered self-checkout, chatbots, and automated ordering systems are already displacing tasks.</li>
+            <li><strong>Office &amp; Administrative Support</strong>, the single most exposed sector at 44.4% mean exposure and 73% in Q5 under moderate assumptions, is roughly 70% female. Under aggressive assumptions, mean exposure rises to 50.5%. Secretaries, administrative assistants, bookkeeping clerks, and office support workers are overwhelmingly women, and these are precisely the roles most susceptible to AI-driven document processing, scheduling automation, and data entry tools.</li>
+            <li><strong>Healthcare Support</strong> roles: medical records technicians, pharmacy aides, health information clerks are 83% female and carry 2.0% Q5 concentration under moderate assumptions, climbing to 14.3% under the aggressive scenario as AI automates coding, transcription, and records management.</li>
         </ul>
-        <p>The structural reality is clear: the jobs where women are concentrated&mdash;clerical, administrative, retail, and support roles&mdash;sit at the epicenter of AI automation risk, regardless of which scenario we use. Under aggressive assumptions, the gap narrows slightly in percentage terms but the absolute exposure levels are dramatically higher for both genders.</p>
+        <p>The gender gap in AI exposure is driven primarily by one sector: Office &amp; Administrative Support is both the largest and most exposed occupation group, and it is 70% female. Because this single cluster accounts for a disproportionate share of total employment among women, it pulls the overall female average well above the male average. The most AI-exposed sectors under aggressive assumptions (Legal at 71.4%, Financial Specialists at 63.8%) are not predominantly female, and sectors that are overwhelmingly female (Healthcare Support at 83%) carry moderate exposure. The vulnerability is real, but concentrated rather than systemic: it is the sheer size of the clerical and administrative workforce, not a pattern across all high-risk sectors, that explains the gap.</p>
 
         <div class="viz-container">
             <div class="viz-header">
@@ -914,6 +952,27 @@
             <strong>Important caveats:</strong> Both 2025 and 2026 data are partial-year. The 2025 signal is strong and consistent across both scenarios, but seasonal hiring patterns (e.g., holiday retail, summer construction) can distort short windows. Full-year 2025 and 2026 data will determine whether this inflection is structural or cyclical.
         </div>
 
+        <h3>Where Do the Outflows Go?</h3>
+        <p>The 2025 inversion raises an immediate question: when workers leave AI-exposed occupations, where do they land? The Sankey diagram below traces net occupation flows for 2025 under the aggressive scenario, connecting the sectors that lost workers (left, in red) to those that absorbed them (right, in green). The pattern is stark: <strong>Office &amp; Administrative Support</strong> lost 7.8 million weighted transitions, followed by <strong>Sales</strong> (&minus;4.5M), <strong>Business &amp; Finance</strong> (&minus;2.3M), and <strong>Financial Specialists</strong> (&minus;1.9M). Additional outflows come from <strong>Protective Service</strong> (&minus;0.9M), <strong>Healthcare Practitioners</strong> (&minus;0.8M), <strong>Legal</strong> (&minus;0.6M), and <strong>Computer &amp; Math</strong> (&minus;0.6M). Most of these sectors have mean AI exposure above 40%, with Legal (71.4%) and Financial Specialists (63.8%) at the top. The receiving sectors are overwhelmingly physical and manual: <strong>Construction</strong> (+5.1M, mean AI exposure 11.5%), <strong>Food Service</strong> (+4.5M, 16.7%), <strong>Management</strong> (+2.3M, 28.7%), and <strong>Healthcare Support</strong> (+2.2M, 22.8%), along with <strong>Cleaning &amp; Grounds</strong> (+2.1M), <strong>Maintenance &amp; Repair</strong> (+1.6M), <strong>Arts &amp; Entertainment</strong> (+1.0M), and <strong>Personal Care</strong> (+0.9M). Workers are not simply shuffling between similarly exposed roles; they are migrating to sectors that current AI systems cannot easily reach. This suggests the labor market may be beginning to price in AI risk, though whether this reallocation is efficient or merely reactive remains an open question.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+                Net Occupation Flows Away from AI-Exposed Roles (2025, Aggressive Scenario)
+            </div>
+            <iframe src="Viz/Section2/sankey_outflow_2025_aggressive.html" loading="lazy" style="height:700px;"></iframe>
+        </div>
+
+        <h3>A Closer Look: Asian Workers and the Professional-Cognitive Reversal</h3>
+        <p>The aggregate pattern is especially pronounced among <strong>Asian (non-Hispanic) workers</strong>, who experienced the most dramatic reversal of any racial group. From 2020 through 2024, Asian workers showed the strongest sustained net inflow into AI-exposed occupations, peaking at +3.1% in 2022, driven by concentration in technology, engineering, finance, and professional-cognitive roles. In 2025, the direction inverted to &minus;1.9%, and early 2026 data shows a further deepening to &minus;4.2%.</p>
+        <p>The Sankey below reveals where these workers are going. The largest outflows come from <strong>Office &amp; Admin</strong> (&minus;392K), <strong>Financial Specialists</strong> (&minus;219K), <strong>Business &amp; Finance</strong> (&minus;203K), <strong>Sales</strong> (&minus;181K), and <strong>Computer &amp; Math</strong> (&minus;130K), reflecting the tech sector contraction that has disproportionately affected Asian workers. Further losses appear in <strong>Healthcare Practitioners</strong> (&minus;100K), <strong>Life/Physical/Social Science</strong> (&minus;70K), and <strong>Protective Service</strong> (&minus;61K). The destinations tell a striking story of occupational reorientation: <strong>Food Service</strong> (+420K) absorbs the most, followed by <strong>Management</strong> (+226K, likely promotions within organizations), <strong>Construction</strong> (+164K), <strong>Healthcare Support</strong> (+156K), <strong>Maintenance &amp; Repair</strong> (+129K), <strong>Personal Care</strong> (+95K), <strong>Arts &amp; Entertainment</strong> (+81K), and <strong>Cleaning &amp; Grounds</strong> (+75K). The shift from cognitive-professional to physical-manual and service sectors is sharper for Asian workers than for any other group, precisely because their prior concentration in high-AI sectors was the deepest.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+                Where Do Asian Workers Go? Net Flows Away from AI-Exposed Roles (2025, Aggressive)
+            </div>
+            <iframe src="Viz/Section2/sankey_asian_outflow_2025_aggressive.html" loading="lazy" style="height:720px;"></iframe>
+        </div>
+
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="number">41.7%</div>
@@ -1039,8 +1098,8 @@
                 <h4>Targeted Reskilling for Trapped Occupations</h4>
                 <p>Under aggressive assumptions, 47.8% of occupations exceeding 45% AI exposure lead only to equally exposed destinations. Our transition matrix identifies specific trapped clusters where intervention is most urgent and feasible:</p>
                 <ul style="font-size:0.9rem; margin:0.5rem 0; padding-left:1.2rem;">
-                    <li><strong>Clerical &rarr; Healthcare Support:</strong> Court clerks, insurance claims processors, and library technicians (65&ndash;89% exposure) currently transition mostly to other clerical roles. Credential-bridging programs into medical records technology, health information management, or clinical administration could redirect these workers toward growing, lower-exposure healthcare roles.</li>
-                    <li><strong>Retail/Cashiers &rarr; Skilled Trades:</strong> Cashiers and postal workers (68&ndash;75% exposure) are trapped in a retail-service loop. Apprenticeship pipelines into HVAC, electrical, or maintenance technician roles&mdash;occupations our data shows have low AI exposure and strong absorption capacity&mdash;offer a concrete exit.</li>
+                    <li><strong>Clerical &rarr; Healthcare Support:</strong> Medical secretaries, billing clerks, and legal administrative assistants (85&ndash;95% exposure) currently transition mostly to other clerical roles. Credential-bridging programs into medical records technology, health information management, or clinical administration could redirect these workers toward growing, lower-exposure healthcare roles.</li>
+                    <li><strong>Financial-Administrative &rarr; Skilled Trades:</strong> Credit authorizers, payroll clerks, and tax preparers (93&ndash;99% exposure) are trapped in a financial-administrative loop. Apprenticeship pipelines into HVAC, electrical, or maintenance technician roles&mdash;occupations our data shows have low AI exposure and strong absorption capacity&mdash;offer a concrete exit.</li>
                     <li><strong>Administrative &rarr; Technical Operations:</strong> Office support workers in the administrative cluster could be retrained for IT support, logistics coordination, or facilities management&mdash;roles in adjacent mobility communities with substantially lower exposure scores.</li>
                 </ul>
             </div>
@@ -1067,7 +1126,7 @@
             <div class="policy-card">
                 <div class="icon">4</div>
                 <h4>Redesign Entry-Level Career Pathways</h4>
-                <p>Workers aged 16&ndash;24 face the highest Q5 concentration (27.6% under moderate, 21.3% under aggressive) and the highest mean exposure (25.2% moderate, 31.3% aggressive) because the default entry-level labor market&mdash;cashiers, food service, retail salespersons&mdash;sits at the core of our trapped occupational clusters. These are not stepping-stone jobs; our network data shows they loop back into equally exposed roles. Interventions should target the <em>on-ramp</em>:</p>
+                <p>Workers aged 16&ndash;24 face the highest Q5 concentration (27.6% under moderate, 21.3% under aggressive) and the highest mean exposure (25.2% moderate, 31.3% aggressive) because the default entry-level labor market&mdash;cashiers, food service, retail salespersons&mdash;sits within high-AI exposure clusters. These are not stepping-stone jobs; our network data shows they loop back into equally exposed roles. Interventions should target the <em>on-ramp</em>:</p>
                 <ul style="font-size:0.9rem; margin:0.5rem 0; padding-left:1.2rem;">
                     <li><strong>Subsidized first-job programs</strong> in low-exposure growth sectors (construction, maintenance, healthcare support) rather than defaulting to retail</li>
                     <li><strong>High school career counseling reform</strong> incorporating AI exposure data&mdash;making occupational risk as visible to students as salary data</li>

@@ -545,6 +545,7 @@
     <a href="#ai-landscape">AI Exposure Landscape</a>
     <a href="#demographics">Demographic Heterogeneity</a>
     <a href="#trapped-workers">Trapped Workers</a>
+    <a href="#economic-mobility" style="padding-left:2.5rem; font-size:0.78rem; opacity:0.75;">&bull; Economic Mobility</a>
     <a href="#temporal">Temporal Evolution</a>
     <a href="#divergence">Demographic Divergence</a>
     <div class="nav-section">Conclusions</div>
@@ -921,6 +922,38 @@
                 <iframe src="Viz/Section2/trapped_degree_aggressive.html" loading="lazy" style="height:680px;"></iframe>
             </div>
         </div>
+
+        <!-- ─── Sub-section: Economic Mobility of Escape Routes ─── -->
+        <h3 id="economic-mobility" style="margin-top:2.5rem;">Economic Mobility of Escape Routes</h3>
+        <p>The trapped worker analysis above tells us <em>which</em> occupations lack low-AI exit paths. But it leaves a critical question unanswered: when workers do escape high-AI occupations, <strong>can they maintain their income?</strong> Reducing AI exposure is meaningless as a policy goal if the available transitions push workers into economic precarity. To address this, we link CPS-ASEC wage and salary income data (INCWAGE) to the same month-to-month occupational transitions used throughout this brief, focusing on the 16,763 observations where workers moved <em>away</em> from occupations above the 45% AI exposure threshold (&Delta;AI &lt; &minus;0.01).<sup><a href="#fn-income" style="color:var(--blue);">1</a></sup></p>
+
+        <p>For each of the 24 destination occupation groups, we measure two dimensions: the <strong>reduction in AI exposure</strong> it offers (how far workers move from the automation frontier) and the <strong>change in median wage income</strong> relative to the origin pool (median $45,000). The scatter plot below maps every destination along these axes. Bubble size reflects the volume of observed transitions (population-weighted), and a LOWESS curve traces the underlying structural relationship.</p>
+
+        <div class="viz-container">
+            <div class="viz-header"><span class="badge">Interactive</span> Economic Mobility vs. AI Exposure Reduction &mdash; Bubble size = transition volume, dark line = LOWESS trend</div>
+            <iframe src="Viz/Section2/bridge_economic_mobility.html" loading="lazy" style="height:620px;"></iframe>
+        </div>
+
+        <h4 style="color:var(--navy); margin-top:1.5rem;">The structural tradeoff: escaping AI costs income</h4>
+
+        <p>The LOWESS trend line reveals a sobering structural pattern: <strong>the farther workers move from the AI frontier, the more income they tend to lose</strong>. At modest reductions (around 20 percentage points), the trend line sits near +35% income&mdash;these are transitions into management, financial, and professional roles that combine lower AI exposure with higher pay. But as reduction increases beyond 30 percentage points, the trend crosses zero and turns sharply negative, reaching &minus;33% at the highest levels of AI escape. This is not coincidental: the occupations that are <em>farthest</em> from AI automation tend to be manual, service, and care-related jobs that structurally pay less. The labor market, as currently configured, prices safety from AI in the currency of income.</p>
+
+        <h4 style="color:var(--navy); margin-top:1.5rem;">Two routes of escape</h4>
+
+        <p>This structural tradeoff, however, is not destiny. The scatter plot reveals <strong>two distinct escape routes</strong> with radically different consequences:</p>
+
+        <p><strong>The upward route&mdash;cognitive upgrading.</strong> Workers move into management, engineering, legal, or financial specialist roles: occupations that reduce AI exposure by 22&ndash;31 percentage points while <em>increasing</em> income by 20&ndash;122%. Management alone absorbs 10.7 million weighted transitions and delivers a 60% income gain (median $45K &rarr; $72K). Architecture &amp; Engineering (+91%), Legal (+122%), and Computer &amp; Math Science (+63%) offer even larger gains, though with smaller flows. This route leverages existing cognitive skills and organizational knowledge, upgrading workers within the knowledge economy rather than ejecting them from it.</p>
+
+        <p><strong>The downward route&mdash;manual deskilling.</strong> Workers shift into food preparation, cleaning, healthcare support, or protective services: occupations with very low AI exposure (34&ndash;48 pp reduction) but severe income penalties of &minus;33% to &minus;60%. Food Preparation alone absorbs 4.1 million weighted transitions while cutting median income from $45K to $18K. This route trades automation risk for a drastic decline in living standards, effectively erasing years of human capital accumulation.</p>
+
+        <p>A handful of notable exceptions defy the structural tradeoff. <strong>Construction</strong> and <strong>Extraction</strong> sit above the LOWESS curve on the right side of the chart&mdash;physical-skill occupations that offer strong AI protection (42&ndash;48 pp) <em>and</em> maintain or increase income. They represent a <strong>third pathway</strong>&mdash;skilled manual work that pays well&mdash;but one that requires physical capacity and specific trade credentials, limiting its accessibility for the typical office or administrative worker leaving a high-AI role. Conversely, <strong>Office &amp; Administrative</strong> (the large orange dot at the lower left) represents the worst of both worlds: modest AI reduction (21 pp) <em>and</em> a 20% income drop, suggesting that lateral moves within the clerical sector are neither safe nor economically sound.</p>
+
+        <h4 style="color:var(--navy); margin-top:1.5rem;">The policy imperative</h4>
+
+        <p>These two routes are not equally accessible. The upward route into management, engineering, and professional roles requires credentials, professional networks, and organizational capital that most clerical and administrative workers lack. Without intervention, the <strong>path of least resistance</strong> for displaced workers is the downward route: into food service, cleaning, and care work&mdash;occupations that are easy to enter but impossible to build a middle-class life upon. The central policy challenge is therefore not whether escape routes from AI exist&mdash;they do&mdash;but whether <strong>the upward route can be made accessible at scale</strong> through targeted retraining, credentialing pathways, and placement programs <em>before</em> the downward route becomes the default.</p>
+
+        <p id="fn-income" style="font-size:0.8rem; color:var(--gray-500); margin-top:1.5rem; border-top:1px solid var(--gray-200); padding-top:0.8rem;"><sup>1</sup> Income is measured using CPS-ASEC wage and salary income (INCWAGE), which captures labor-market compensation and is the most appropriate measure for comparing occupational transitions. As a robustness check, we replicate the analysis using total personal income (INCTOT, which adds investment income, transfers, and Social Security). Results are nearly identical: the Spearman rank correlation between INCWAGE-based and INCTOT-based income changes across the 24 destination groups is &rho; = 0.997 (p &lt; 0.001), and 23 of 24 groups fall in the same classification tier under both measures.</p>
+
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════ -->

@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI and the American Workforce | Future Impact Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a365d;
+            --dark-navy: #0f2440;
+            --blue: #2b6cb0;
+            --light-blue: #ebf4ff;
+            --accent: #e53e3e;
+            --accent-light: #fff5f5;
+            --gray-50: #f7fafc;
+            --gray-100: #edf2f7;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e0;
+            --gray-500: #718096;
+            --gray-600: #4a5568;
+            --gray-700: #2d3748;
+            --gray-800: #1a202c;
+            --green: #38a169;
+            --orange: #dd6b20;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-700);
+            line-height: 1.7;
+            background: #fff;
+        }
+
+        /* --- Navigation --- */
+        .side-nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            background: var(--dark-navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+            transition: transform 0.3s;
+        }
+        .side-nav .logo {
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.6;
+        }
+        .side-nav a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            padding: 0.6rem 1.5rem;
+            font-size: 0.82rem;
+            font-weight: 400;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .side-nav a:hover,
+        .side-nav a.active {
+            color: #fff;
+            background: rgba(255,255,255,0.06);
+            border-left-color: var(--accent);
+        }
+        .side-nav .nav-section {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            padding: 1.2rem 1.5rem 0.4rem;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            margin-left: 260px;
+            min-height: 100vh;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-navy) 100%);
+            color: #fff;
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 700px;
+            margin-bottom: 1rem;
+        }
+        .hero .subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        .hero .meta {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.8;
+        }
+        .hero .meta strong {
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+
+        /* --- Sections --- */
+        .section {
+            padding: 3.5rem 4rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .section:last-child { border-bottom: none; }
+        .section.alt-bg { background: var(--gray-50); }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+        }
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+        }
+        .section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 2rem 0 0.8rem;
+        }
+        .section p {
+            max-width: 720px;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .section ol, .section ul {
+            max-width: 720px;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        .section li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* --- Key Takeaways --- */
+        .takeaway-box {
+            background: var(--light-blue);
+            border-left: 4px solid var(--blue);
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .takeaway-box h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 0 0 0.8rem;
+        }
+        .takeaway-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .takeaway-box li {
+            padding: 0.4rem 0 0.4rem 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+        .takeaway-box li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.75rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--blue);
+        }
+
+        /* --- Stats Grid --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .stat-card {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+        .stat-card .number.red { color: var(--accent); }
+        .stat-card .number.green { color: var(--green); }
+        .stat-card .number.orange { color: var(--orange); }
+        .stat-card .label {
+            font-size: 0.78rem;
+            color: var(--gray-500);
+            margin-top: 0.4rem;
+        }
+
+        /* --- Callout --- */
+        .callout {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .callout.blue {
+            background: var(--light-blue);
+            border-left-color: var(--blue);
+        }
+        .callout strong {
+            color: var(--navy);
+        }
+
+        /* --- Viz Container --- */
+        .viz-container {
+            margin: 2rem 0;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .viz-container .viz-header {
+            background: var(--gray-50);
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .viz-container .viz-header .badge {
+            background: var(--blue);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .viz-container iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        /* --- Tabs --- */
+        .viz-tabs {
+            margin: 2rem 0;
+        }
+        .tab-buttons {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        .tab-btn {
+            padding: 0.7rem 1.5rem;
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gray-500);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover { color: var(--navy); }
+        .tab-btn.active {
+            color: var(--navy);
+            border-bottom-color: var(--blue);
+        }
+        .tab-panel {
+            display: none;
+            border: 1px solid var(--gray-200);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+        .tab-panel.active { display: block; }
+        .tab-panel iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        /* --- Side-by-side comparison --- */
+        .viz-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .viz-comparison .viz-panel {
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .viz-comparison .viz-panel-title {
+            background: var(--gray-50);
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-align: center;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .viz-comparison iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            display: block;
+            overflow: hidden;
+        }
+        @media (max-width: 900px) {
+            .viz-comparison { grid-template-columns: 1fr; }
+        }
+
+        /* --- Table --- */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin: 1.5rem 0;
+        }
+        .data-table th {
+            background: var(--navy);
+            color: #fff;
+            padding: 0.7rem 1rem;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+        .data-table td {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .data-table tr:nth-child(even) { background: var(--gray-50); }
+        .data-table .highlight { background: #fff5f5; }
+
+        /* --- Policy Box --- */
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .policy-card {
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: #fff;
+        }
+        .policy-card .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .policy-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+        .policy-card p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        /* --- Annex --- */
+        .annex { background: var(--gray-50); }
+        .annex h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 1.5rem 0 0.6rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .annex p, .annex li {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+        .annex ul {
+            padding-left: 1.2rem;
+            margin: 0.5rem 0 1rem;
+        }
+        .annex li { margin-bottom: 0.3rem; }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--dark-navy);
+            color: rgba(255,255,255,0.5);
+            padding: 2rem 4rem;
+            font-size: 0.78rem;
+            text-align: center;
+        }
+
+        /* --- Mobile Toggle --- */
+        .nav-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 200;
+            background: var(--navy);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.6rem 0.8rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .side-nav { transform: translateX(-100%); }
+            .side-nav.open { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .nav-toggle { display: block; }
+            .hero { padding: 4rem 2rem 3rem; }
+            .hero h1 { font-size: 2rem; }
+            .section { padding: 2.5rem 2rem; }
+            .footer { padding: 2rem; }
+        }
+
+        /* --- Footnotes --- */
+        .footnote-ref {
+            font-size: 0.7em;
+            vertical-align: super;
+            line-height: 0;
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .footnote-ref:hover {
+            color: var(--accent);
+        }
+        .footnotes-section {
+            border-top: 1px solid var(--gray-200);
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+        }
+        .footnotes-section ol {
+            font-size: 0.82rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            padding-left: 1.5rem;
+        }
+        .footnotes-section li {
+            margin-bottom: 0.5rem;
+        }
+        .footnote-backref {
+            color: var(--blue);
+            text-decoration: none;
+            font-size: 0.85em;
+            margin-left: 0.3em;
+        }
+
+        /* --- Print --- */
+        @media print {
+            .side-nav, .nav-toggle { display: none !important; }
+            .main-content { margin-left: 0; }
+            .hero { padding: 2rem; background: #fff; color: #000; }
+            .hero h1 { color: var(--navy); font-size: 1.8rem; }
+            .hero .subtitle { color: var(--gray-600); }
+            .hero .meta { color: var(--gray-500); }
+            .section { padding: 1.5rem 0; page-break-inside: avoid; }
+            .viz-container { page-break-inside: avoid; }
+            .footer { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Mobile nav toggle -->
+<button class="nav-toggle" onclick="document.querySelector('.side-nav').classList.toggle('open')">&#9776;</button>
+
+<!-- Side Navigation -->
+<nav class="side-nav">
+    <div class="logo">Future Impact Group</div>
+    <div class="nav-section">Introduction</div>
+    <a href="#research-question">Research Question</a>
+    <a href="#data-methods">Data &amp; Methods</a>
+    <div class="nav-section">Findings</div>
+    <a href="#mobility-landscape">Mobility Landscape</a>
+    <a href="#ai-landscape">AI Exposure Landscape</a>
+    <a href="#demographics">Demographic Heterogeneity</a>
+    <a href="#trapped-workers">Trapped Workers</a>
+    <a href="#economic-mobility" style="padding-left:2.5rem; font-size:0.78rem; opacity:0.75;">&bull; Economic Mobility</a>
+    <a href="#temporal">Temporal Evolution</a>
+    <a href="#divergence">Demographic Divergence</a>
+    <div class="nav-section">Conclusions</div>
+    <a href="#conclusions">Conclusions &amp; Policy Implications</a>
+    <a href="#annex">Methodological Annex</a>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
+    <!-- Hero -->
+    <header class="hero">
+        <h1>AI and the American Workforce: Vulnerability, Mobility, and the Path Forward</h1>
+        <p class="subtitle">Where are workers moving in an AI-transformed labor market&mdash;and who is being left behind?</p>
+        <div class="meta">
+            <strong> DRAFT FOR COMMENTS</strong><br>
+
+            <strong>Data Analysis:</strong> Aleister Montfort<br>
+            <strong>AI Exposure Index:</strong> Melissa Pumphrey<br>
+            <strong>Policy &amp; Framing:</strong> Aleister Montfort, Daniel Plaisance, Melissa Pumphrey &amp; Liat Krawczyk<br>
+            <strong>Organization:</strong> Future Impact Group<br>
+            <strong>Data:</strong> Current Population Survey (CPS), 2019&ndash;2026 &nbsp;|&nbsp; O*NET Task-Level AI Exposure Indices<br>
+            <strong>Release for comments:</strong> March 2026
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- EXECUTIVE SUMMARY -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section" id="executive-summary" style="background: linear-gradient(135deg, #f7fafc 0%, #ebf4ff 100%); border-left: 4px solid var(--navy); padding: 2rem 2.5rem;">
+        <h2 style="font-size:1.3rem; margin-bottom:1rem;">Executive Summary</h2>
+        <p>Using 595,000 occupational transitions from the Current Population Survey (2019&ndash;2026) overlaid with task-level AI exposure scores, we go beyond measuring <em>who</em> is exposed to AI automation to ask <em>who can escape</em>. Our central finding: under aggressive assumptions, <strong>nearly half (47.8%) of occupations where AI can automate more than 45% of tasks are &ldquo;trapped&rdquo;</strong>&mdash;their workers&rsquo; most common career moves lead to jobs that are equally threatened. Women, young workers, and clerical employees are disproportionately concentrated in these trapped roles. Under aggressive automation assumptions&mdash;which better reflect the current LLM era&mdash;net worker flow away from AI-exposed occupations turned negative for the first time in 2025, though concurrent tech layoffs and federal workforce reductions make causal attribution uncertain. We identify specific reskilling bridges (clerical&rarr;healthcare, retail&rarr;skilled trades, admin&rarr;technical operations) derived from actual transition pathways, and recommend targeted policy intervention before market adjustment leaves trapped workers behind.</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 1: RESEARCH QUESTION -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section" id="research-question">
+        <div class="section-label">Introduction</div>
+        <h2>The Question</h2>
+        <p>Existing research on AI and labor has produced valuable measures of occupational exposure&mdash;estimating which jobs contain the highest share of automatable tasks. Recent work by <a href=”https://www.anthropic.com/research/labor-market-impacts” target=”_blank”>Massenkoff and McCrory (2026)</a> represents the state of the art, combining theoretical AI capabilities with actual deployment patterns. Yet even their framework provides a fundamentally <em>static</em> picture: which occupations are exposed, and which workers fill them.</p>
+
+        <p><strong>Knowing that an occupation is exposed tells us little about what happens next.</strong> A highly exposed worker with clear pathways to lower-risk occupations faces a fundamentally different situation than one whose every viable career move leads to equally threatened jobs. What has been missing is a framework connecting static exposure scores with the <em>actual dynamics of labor market mobility</em>.</p>
+
+        <p><strong>This is the contribution of this study.</strong> Where existing research measures <em>who</em> is exposed, we measure <em>who can escape, who is trapped, and where the labor market is already adapting</em>. We overlay task-level AI exposure scores onto 595,000 observed occupational transitions from the Current Population Survey (2019&ndash;2026), constructing a mobility network that identifies &ldquo;trapped&rdquo; occupations&mdash;those that are both highly exposed <em>and</em> whose most common transition destinations are equally vulnerable&mdash;and tracking net worker flows over time. Specifically, we address three questions:</p>
+        <ol>
+            <li><strong>Exposure:</strong> Which occupational sectors and demographic groups face the highest concentration of AI-automatable tasks, and how does this vary under moderate versus aggressive automation assumptions?</li>
+            <li><strong>Mobility:</strong> When workers leave high-AI occupations, where do they go? Are viable transition pathways available, or are some workers "trapped" in a web of equally vulnerable occupations?</li>
+            <li><strong>Trajectory:</strong> How have patterns of occupational mobility into and out of AI-exposed roles evolved between 2019 and 2026&mdash;and do different demographic groups show divergent trends?</li>
+        </ol>
+
+        <div class="takeaway-box">
+            <h3>Key Findings</h3>
+            <ul>
+                <li><strong>AI exposure is sharply concentrated:</strong> Office and administrative support workers face 50.5% mean task exposure under aggressive assumptions, with nearly two-thirds (64.8%) of their workforce exceeding the 45% AI exposure threshold. Legal occupations surge to 72.0% mean exposure, with 100% of workers above the threshold.</li>
+                <li><strong>Women face 29% higher baseline exposure than men</strong> (22.1% vs. 17.1%), driven by overrepresentation in clerical roles. Year-to-year net flows show periods where women move <em>out</em> of AI-exposed roles faster than men&mdash;and periods where the reverse is true&mdash;but this volatility has not erased the structural gap.</li>
+                <li><strong>Under aggressive assumptions, 43.2% of high-AI occupations are "trapped":</strong> their most common career transitions lead to destinations where AI can also automate more than 45% of tasks, leaving workers with no viable escape route. Under moderate assumptions, the trapped rate is lower (23.7%) because fewer occupations cross the 45% threshold&mdash;but the pattern is clear: as AI capabilities expand, both the number of exposed occupations and the share that are trapped increase sharply.</li>
+                <li><strong>A possible inflection in 2025:</strong> under the aggressive scenario, net worker flow toward AI-exposed cognitive occupations <strong>inverted for the first time</strong>, with &minus;1.6M weighted transitions away from high-AI roles. This may signal market adaptation to AI risk&mdash;but concurrent tech layoffs and federal workforce reductions complicate causal attribution. Early 2026 data shows a partial rebound.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 2: DATA & METHODS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section alt-bg" id="data-methods">
+        <div class="section-label">Introduction</div>
+        <h2>Data and Methods</h2>
+
+        <h3>Microdata: The Current Population Survey</h3>
+        <p>We use the CPS Basic Monthly longitudinal panels from 2019 through early 2026, accessed via IPUMS CPS. The CPS's rotating panel design allows us to track the same individuals across multiple monthly interviews and observe occupational transitions&mdash;cases where a worker reports a different occupation in a subsequent wave. This yields 595,104 observed transitions involving more than 550 unique Census occupation codes. All estimates are population-weighted using CPS final person weights (WTFINL).</p>
+
+        <h3>AI Exposure Index: An O*NET Task-Level Approach</h3>
+        <p>Rather than relying on aggregate occupational classifications, we measure AI exposure at the <em>task level</em> using O*NET work activity data. For each of 879 O*NET occupations, we calculate the share of work activities whose assessed complexity falls at or below a given threshold&mdash;capturing the proportion of the job that is plausibly automatable by current or near-term AI systems. We apply two thresholds to bracket the range of assumptions:</p>
+        <ul>
+            <li><strong>Moderate Assumption (complexity &le;4):</strong> Only lower-complexity, routine tasks are considered automatable. Mean occupational exposure: 19.4%. This scenario identifies the most immediate, unambiguous automation targets&mdash;tasks that require little judgment or interpretation.</li>
+            <li><strong>Aggressive Assumption (complexity &le;6):</strong> AI automates not only routine tasks but also moderately complex cognitive work&mdash;activities involving judgment, interpretation, pattern recognition, and analytical reasoning. Mean occupational exposure: 32.3%. This scenario captures the broader AI frontier that current large language models and multimodal systems are already beginning to reach.</li>
+        </ul>
+        <div class="callout">
+            <strong>A note on scenarios (March 2026):</strong> When this index was first constructed, the aggressive assumption represented a forward-looking upper bound. As of early 2026, the rapid deployment of large language models, AI coding assistants, and autonomous agents across legal, financial, and administrative workflows suggests that the aggressive scenario more closely reflects <em>current</em> AI capabilities. Readers should interpret the moderate scenario as a floor&mdash;the minimum disruption already underway&mdash;and the aggressive scenario as closer to the present baseline.
+        </div>
+        <p>The correlation between the two indices is r&nbsp;=&nbsp;0.49, confirming they capture meaningfully different facets of AI risk. This dual-scenario approach provides robustness: findings that hold under both thresholds represent strong signals.</p>
+        <p>Throughout this analysis, we define <strong>"high-AI occupations"</strong> as those where more than <strong>45% of core tasks</strong> are plausibly automatable&mdash;a fixed absolute threshold rather than a relative quintile cutoff. This ensures consistent comparisons across scenarios: the same standard of vulnerability applies regardless of the AI capability assumptions. Under aggressive assumptions, 25.0% of the workforce falls into this category; under moderate assumptions, 11.7%.</p>
+
+        <h3>Crosswalk and Integration</h3>
+        <p>Connecting AI scores (O*NET codes) to labor market transitions (Census occupation codes) requires a three-stage crosswalk: O*NET &rarr; SOC 6-digit &rarr; Census OCC 4-digit, using the Census Bureau's 2018 crosswalk with hierarchical fallback matching. This pipeline achieves 82.0% coverage of all observed transitions&mdash;the remaining 18.0% involve rare or residual occupation categories not mapped in O*NET.</p>
+
+        <h3>Network Analysis</h3>
+        <p>We employ Louvain community detection on the occupational transition network to identify 21 clusters of occupations with high internal mobility. These communities reveal the labor market's natural "mobility neighborhoods"&mdash;groups of occupations between which workers commonly move. We then aggregate to 25 standard occupation groups based on Census 2-digit prefixes for interpretable comparison.</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number">595K</div>
+                <div class="label">Occupational transitions</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">630+</div>
+                <div class="label">Unique occupations</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">82.0%</div>
+                <div class="label">Transition coverage</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">21</div>
+                <div class="label">Mobility communities</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 2B: THE MOBILITY LANDSCAPE -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section" id="mobility-landscape">
+        <div class="section-label">Context</div>
+        <h2>The Mobility Landscape: How Workers Move</h2>
+        <p>Before asking how AI disrupts the labor market, we must first understand how that market is structured. Using 595,000 observed occupational transitions, we construct a network where occupations are nodes and worker flows are edges. Applying the Louvain community detection algorithm to this network reveals <strong>21 natural mobility communities</strong>&mdash;clusters of occupations between which workers frequently move. These communities are the labor market's connective tissue: they define who can realistically transition to what.</p>
+
+        <h3>The Occupational Network</h3>
+        <p>The interactive visualization below maps the full occupational network. Each node is an occupation, colored by its detected community. Node size reflects occupational "strength"&mdash;the total volume of inbound and outbound transitions. The spatial arrangement reveals the market's structure: tightly connected communities (construction trades, healthcare, education) and more dispersed ones (management, which bridges multiple sectors). Use the dropdown menu to explore individual communities.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+                Occupational Mobility Network &mdash; 21 Communities Detected via Louvain Algorithm
+            </div>
+            <iframe src="Clustering%26Communities/community_00.html" loading="lazy" scrolling="no" style="height:950px; overflow:hidden; border:none;"></iframe>
+        </div>
+
+        <h3>Transition Patterns: Where Workers Actually Go</h3>
+        <p>The occupational transition rate matrix (presented in full in the <a href="#annex">Methodological Annex</a>) reveals the micro-structure of labor market mobility. Examining the top 20 occupations by transition volume&mdash;which collectively account for a disproportionate share of all observed moves&mdash;several patterns emerge.</p>
+
+        <p>First, <strong>flows are sharply asymmetric</strong>. Certain occupations consistently absorb workers from multiple sources (Registered Nurses, Software Developers, Personal Care Aides), while others consistently expel them (Cashiers, Office Clerks, Food Preparation Workers). This asymmetry is not random: it reflects structural differences in demand growth, working conditions, and wage trajectories that pull workers in predictable directions.</p>
+
+        <p>Second, <strong>the most common transitions are short-range</strong>. Workers overwhelmingly move between occupations that share skill profiles, industry contexts, or credentialing requirements. A retail salesperson becomes a customer service representative; a nursing assistant moves to home health aide; a construction laborer transitions to maintenance worker. These "local" moves within community boundaries account for the majority of observed transitions and define the practical mobility frontier for most workers.</p>
+
+        <p>Third, <strong>a small number of occupations serve as cross-sector bridges</strong>. Customer Service Representatives, General &amp; Operations Managers, and Administrative Assistants appear as frequent destinations for workers originating in multiple communities. These bridge occupations function as labor market transfer stations&mdash;enabling cross-sector mobility that would otherwise be structurally blocked. Their role becomes critical when we later examine which workers can escape high-AI occupations.</p>
+
+        <h3>Absorbers, Expellers, and Bridges</h3>
+        <p>Not all occupations play the same role in the mobility network. We classify each occupation along two dimensions: its <strong>absorption index</strong> (net inflow vs. outflow) and its <strong>external ratio</strong> (share of transitions crossing community boundaries). This yields four mobility roles:</p>
+        <ul>
+            <li><strong>Absorbers</strong> &mdash; Net receivers of workers. These occupations are growing or have high turnover demand (e.g., Registered Nurses, Personal Care Aides, Software Developers).</li>
+            <li><strong>Expellers</strong> &mdash; Net senders of workers. These occupations are shrinking or have high exit rates (e.g., Cashiers, Office Clerks, Food Preparation).</li>
+            <li><strong>Bridges</strong> &mdash; Occupations with high external flow ratios, connecting different communities. These are the labor market's transition hubs (e.g., Customer Service Representatives, General Managers).</li>
+            <li><strong>Isolated</strong> &mdash; Occupations with mostly internal community flows and limited cross-sector mobility.</li>
+        </ul>
+
+        <div class="viz-container">
+            <div class="viz-header">
+
+                Mobility Role Classification: Absorption vs. External Flow
+            </div>
+            <iframe src="Clustering%26Communities/2.%20Mobility%20Role%20Map.html" loading="lazy" style="height:550px;"></iframe>
+        </div>
+
+        <p>The bridge occupations are particularly important for understanding trapped workers later in this analysis. The chart below identifies the top 20 bridging occupations&mdash;those that most frequently serve as conduits between communities. These are the jobs through which workers cross sector boundaries.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+
+                Top 20 Bridging Occupations by External Flow Share
+            </div>
+            <iframe src="Clustering%26Communities/3.%20top_bridges.html" loading="lazy" style="height:550px;"></iframe>
+        </div>
+
+        <div class="callout blue">
+            <strong>Why this matters for AI:</strong> The mobility network defines each occupation&rsquo;s &ldquo;escape routes.&rdquo; When we overlay AI exposure scores onto this network, occupations that are both highly exposed <em>and</em> poorly connected to low-exposure communities become traps&mdash;high risk with no exit. The community structure determines not just who is vulnerable, but who can adapt <strong>within the current labor market architecture</strong>. Critically, this analysis maps existing pathways&mdash;it does not capture the new industries, roles, and occupations that are likely to emerge as AI adoption deepens. History suggests that technological revolutions ultimately create more jobs than they destroy, but the transition period can be prolonged and painful for workers whose current mobility options lead only to equally threatened occupations.
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 3: AI EXPOSURE LANDSCAPE -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section alt-bg" id="ai-landscape">
+        <div class="section-label">Finding 1</div>
+        <h2>Overlaying AI Risk: The Exposure Landscape</h2>
+        <p>With the mobility landscape established, we now apply the <strong>AI Exposure Index</strong> described above&mdash;the share of each occupation's tasks that fall below a given complexity threshold&mdash;to every node in the network. Each worker's occupation receives a score from 0% (no automatable tasks) to 100% (all tasks automatable). We classify occupations as <strong>"high-AI"</strong> when more than <strong>45% of their tasks</strong> are plausibly automatable&mdash;a fixed absolute threshold that identifies the most immediately vulnerable segment of the labor market regardless of the AI scenario.</p>
+
+        <p>Given the rapid deployment of large language models, AI coding assistants, and autonomous agents across professional workflows as of early 2026, we treat the <strong>aggressive scenario</strong> (threshold &le;6) as the <strong>primary analytical lens</strong> throughout this brief. This scenario captures not only routine tasks but also moderately complex cognitive work&mdash;judgment, interpretation, pattern recognition, and analytical reasoning&mdash;that current frontier AI systems are already beginning to perform. The <strong>moderate scenario</strong> (threshold &le;4) serves as a useful floor, capturing the minimum disruption from traditional automation of routine tasks that was already underway before the LLM era.</p>
+
+        <p>Under the aggressive scenario, <strong>Legal occupations</strong> face the highest mean exposure at <strong>71.4%</strong>&mdash;because legal work involves research, document analysis, and contract interpretation that large language models can now assist with or perform. <strong>Financial Specialists</strong> reach 63.8%, and <strong>Business &amp; Financial Operations</strong> 45.4%, as forecasting, risk assessment, and reporting tasks enter the automation frontier. <strong>Office &amp; Administrative Support</strong> remains a dominant exposure pocket (57.6% of its workers exceeding the 45% threshold even under the moderate scenario, rising to 64.8% under aggressive assumptions). Meanwhile, manual and physical occupations (Construction at 11.5%, Cleaning at 11.3%) remain relatively insulated, underscoring that AI disruption follows a <em>cognitive</em>, not physical, gradient.</p>
+
+        <div class="viz-comparison">
+            <div class="viz-panel">
+                <div class="viz-panel-title">Moderate Scenario</div>
+                <iframe src="Viz/Section2/community_ai_exposure_conservative.html" loading="lazy" style="height:720px;"></iframe>
+            </div>
+            <div class="viz-panel">
+                <div class="viz-panel-title">Aggressive Scenario</div>
+                <iframe src="Viz/Section2/community_ai_exposure_aggressive.html" loading="lazy" style="height:720px;"></iframe>
+            </div>
+        </div>
+
+        <h3>Concentration Metrics</h3>
+        <p>The distribution of AI risk across occupation groups is highly unequal&mdash;but the nature of that inequality shifts between scenarios. Under the moderate scenario, the <strong>Gini coefficient</strong><a href="#fn1" id="fn1-ref" class="footnote-ref">1</a> of AI exposure is 0.50&mdash;comparable to income inequality levels in many developing economies, but applied to automation risk. A small number of sectors absorb a disproportionate share.</p>
+        <p>Under the aggressive scenario&mdash;which we argue better reflects the current AI frontier&mdash;the Gini drops to <strong>0.33</strong>. This is not good news: it means that as AI capabilities expand, risk <em>spreads</em> to previously insulated sectors (engineering, science, education), reducing concentration but <strong>broadening the population at risk</strong>. The share of the workforce exceeding the 45% exposure threshold jumps from 11.7% under moderate to 25.0% under aggressive assumptions, and the <em>composition</em> of that group changes dramatically: under aggressive assumptions, it includes professionals who previously considered themselves safe from automation.</p>
+
+        <div class="viz-comparison">
+            <div class="viz-panel">
+                <div class="viz-panel-title">Moderate Scenario</div>
+                <iframe src="Viz/Section2/community_vulnerability_scatter_ai_conservative.html" loading="lazy" scrolling="no" style="height:680px;"></iframe>
+            </div>
+            <div class="viz-panel">
+                <div class="viz-panel-title">Aggressive Scenario</div>
+                <iframe src="Viz/Section2/community_vulnerability_scatter_ai_aggressive.html" loading="lazy" scrolling="no" style="height:680px;"></iframe>
+            </div>
+        </div>
+
+        <div class="footnotes-section">
+            <ol>
+                <li id="fn1">The Gini coefficient is a standard measure of inequality ranging from 0 to 1, where 0 indicates perfect equality (every occupation group bears the same AI exposure) and 1 indicates perfect concentration (all exposure falls on a single group). Originally developed to measure income distribution across populations, we apply it here to the distribution of AI automation risk across occupation groups. A value of 0.50 means that a small number of sectors (e.g. administrative support, legal, financial) absorb a disproportionate share of total AI exposure, a level of concentration comparable to income inequality in countries such as Mexico or Brazil. The decline to 0.33 under the aggressive scenario does not signal improvement; it indicates that AI risk is spreading from a concentrated cluster into previously insulated sectors, reducing inequality in exposure but broadening the population at risk. <a href="#fn1-ref" class="footnote-backref">&uarr;</a></li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 4: DEMOGRAPHICS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section" id="demographics">
+        <div class="section-label">Finding 2</div>
+        <h2>Who Bears the Risk? Demographic Heterogeneity</h2>
+        <p>AI exposure intersects with existing labor market stratification along gender, education, age, and racial lines. These patterns reflect structural occupational segregation that concentrates certain demographic groups in high-risk sectors.</p>
+
+        <h3>Gender</h3>
+        <p>Under the aggressive scenario, women face a mean AI exposure of <strong>35.4%</strong> versus <strong>29.5%</strong> for men&mdash;a persistent <strong>20% gap</strong>. Under the moderate scenario, the gap is even steeper: 22.1% vs. 17.1% (a 29% difference). Nearly a third (30.4%) of female workers exceed the 45% AI exposure threshold, compared to 20.1% of men. This disparity maps directly onto specific occupations where women are disproportionately represented:</p>
+        <ul>
+            <li><strong>Office &amp; Administrative Support</strong>, the single most exposed sector at 44.4% mean exposure with 57.6% of workers exceeding the 45% threshold under moderate assumptions, is roughly 70% female. Under aggressive assumptions, mean exposure rises to 50.5% and 64.8% of workers exceed the threshold. Secretaries, administrative assistants, bookkeeping clerks, and office support workers are overwhelmingly women, and these are precisely the roles most susceptible to AI-driven document processing, scheduling automation, and data entry tools.</li>
+            <li><strong>Healthcare Support</strong> roles: medical records technicians, pharmacy aides, health information clerks are 83% female and carry 1.1% above the 45% threshold under moderate assumptions, climbing to 14.3% under the aggressive scenario as AI automates coding, transcription, and records management.</li>
+        </ul>
+        <p>The gender gap in AI exposure is driven primarily by one sector: Office &amp; Administrative Support is both the largest and most exposed occupation group, and it is 70% female. Because this single cluster accounts for a disproportionate share of total employment among women, it pulls the overall female average well above the male average. The most AI-exposed sectors under aggressive assumptions (Legal at 71.4%, Financial Specialists at 63.8%) are not predominantly female, and sectors that are overwhelmingly female (Healthcare Support at 83%) carry moderate exposure. The vulnerability is real, but concentrated rather than systemic: it is the sheer size of the clerical and administrative workforce, not a pattern across all high-risk sectors, that explains the gap.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+
+                AI Exposure by Gender: Moderate vs. Aggressive
+            </div>
+            <iframe src="Viz/Section2/demographic_sex_comparison.html" loading="lazy" scrolling="no" style="height:350px;"></iframe>
+        </div>
+
+        <h3>Education</h3>
+        <p>Education acts as a partial shield, but with important caveats. <strong>Graduate degree holders</strong> enjoy the lowest exposure at 11.9% (moderate)&mdash;roughly three times less than workers with <strong>some college</strong> (22.0%) or a <strong>high school diploma</strong> (21.8%). However, the aggressive scenario delivers a stark warning: bachelor's and graduate holders see their exposure surge to 35.7% and 35.6% respectively&mdash;<strong>converging with some college workers (33.2%) and effectively erasing the education advantage</strong>. As AI advances beyond routine tasks into complex cognitive work&mdash;legal research, financial analysis, scientific writing, and strategic planning&mdash;the education premium for automation protection collapses. Workers who invested in higher education to insulate themselves from technological disruption find that AI's expanding frontier reaches their occupations just as readily.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+
+                AI Exposure by Education Level: Moderate vs. Aggressive
+            </div>
+            <iframe src="Viz/Section2/demographic_education_comparison.html" loading="lazy" scrolling="no" style="height:420px;"></iframe>
+        </div>
+
+        <h3>Age</h3>
+        <p>Workers aged <strong>16&ndash;24</strong> face the highest above-45% concentration under moderate assumptions (18.4%, compared to 9.7&ndash;11.6% for older groups). Under aggressive assumptions, all age groups converge around 24&ndash;26% above the threshold&mdash;but young workers start from a higher baseline (25.2% mean exposure even under moderate assumptions) because the occupations that serve as on-ramps to the labor market&mdash;cashiers, clerks, retail, food service&mdash;are precisely the sectors facing the most immediate automation pressure.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+
+                AI Exposure by Age Group: Moderate vs. Aggressive
+            </div>
+            <iframe src="Viz/Section2/demographic_age_comparison.html" loading="lazy" scrolling="no" style="height:420px;"></iframe>
+        </div>
+
+        <h3>Race and Ethnicity</h3>
+        <p>Incorporating race and Hispanic origin data from the CPS reveals a distinct pattern of AI exposure across racial and ethnic groups. Under the <strong>moderate scenario</strong>, <strong>Black (non-Hispanic) workers</strong> face the highest mean exposure at <strong>20.7%</strong>, followed by Hispanic workers at 20.2%&mdash;both exceeding the White (non-Hispanic) average of 19.1%. <strong>Asian (non-Hispanic) workers</strong> are the least exposed at 17.1%, reflecting their concentration in technology, engineering, and healthcare occupations with lower routine-task content.</p>
+        <p>The <strong>aggressive scenario reverses the ranking</strong> in a revealing way: Asian workers surge to <strong>34.8%</strong>&mdash;the highest of any racial group&mdash;while Hispanic workers remain the lowest at 29.0%. This inversion occurs because expanding the automation frontier to include moderately complex cognitive tasks captures the professional and technical roles where Asian workers are concentrated (finance, IT, legal, scientific research), while the physical and manual occupations overrepresented among Hispanic workers (construction, agriculture, cleaning) remain relatively insulated even under aggressive assumptions. Black workers face persistent vulnerability across both scenarios (20.7% moderate, 32.9% aggressive), reflecting a distribution across both routine-cognitive and service-sector roles that are exposed under either threshold.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+
+                AI Exposure by Race / Ethnicity: Moderate vs. Aggressive
+            </div>
+            <iframe src="Viz/Section2/demographic_race_comparison.html" loading="lazy" scrolling="no" style="height:420px;"></iframe>
+        </div>
+
+        <h3>Intersectional Risk: Where Gender Meets Education</h3>
+        <p>The most revealing pattern emerges at the intersection of gender and education. Under conservative assumptions, <strong>women with a high school diploma</strong> face 26.4% mean exposure and 22.6% above the 45% threshold&mdash;more than triple the rate for men with the same education (18.9% mean, 6.6% above threshold). Even among college-educated workers, women face consistently higher exposure: 25.4% versus 19.2% for men with some college. Under aggressive assumptions, the gender gap narrows for the most educated (women and men with graduate degrees converge at ~35.6% mean exposure) but persists sharply among high-school-educated workers (34.3% vs. 25.8%). These compounding disadvantages suggest that AI disruption will disproportionately affect women who already face structural barriers in the labor market.</p>
+
+        <div class="viz-comparison">
+            <div class="viz-panel">
+                <div class="viz-panel-title">Moderate Scenario</div>
+                <iframe src="Viz/Section2/intersectional_heatmap_ai_conservative.html" loading="lazy" scrolling="no" style="height:380px;"></iframe>
+            </div>
+            <div class="viz-panel">
+                <div class="viz-panel-title">Aggressive Scenario</div>
+                <iframe src="Viz/Section2/intersectional_heatmap_ai_aggressive.html" loading="lazy" scrolling="no" style="height:380px;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 5: TRAPPED WORKERS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section alt-bg" id="trapped-workers">
+        <div class="section-label">Finding 3</div>
+        <h2>The Trapped Worker Problem</h2>
+        <p>Vulnerability is not just about where workers <em>are</em>&mdash;it is about where they <em>can go</em>. Using the origin-destination transition rate matrix (which captures the actual frequency of occupational moves observed in CPS panels), we identify the most common career transitions available to workers in high-AI occupations and measure the AI exposure of those destinations.</p>
+        <p>We define a "trapped" occupation as one meeting two criteria: (1) its own AI exposure exceeds 45%&mdash;meaning nearly half of its core tasks are plausibly automatable&mdash;and (2) the weighted average AI exposure of its top five transition destinations also exceeds 45%. We use this fixed threshold rather than a relative quintile cutoff because it produces consistent comparisons across scenarios: the same absolute standard of vulnerability applies regardless of the AI capability assumptions. In these occupations, the most common career moves lead to jobs that are equally threatened&mdash;workers are mobile, but they cannot escape.</p>
+
+        <div class="callout">
+            Under <strong>moderate assumptions</strong>, 38 occupations exceed the 45% exposure threshold, and <strong>9 of them (23.7%) are trapped</strong>&mdash;a small but concentrated cluster of postal workers, medical secretaries, and legal administrative assistants whose escape routes loop back to equally exposed clerical roles. Under <strong>aggressive assumptions</strong>&mdash;which better reflect the current AI frontier&mdash;the picture is dramatically worse: <strong>111 occupations exceed 45% exposure, and 48 of them (43.2%) are trapped</strong>. As AI capabilities expand from routine tasks into moderately complex cognitive work, both the number of high-exposure occupations and the share with no viable escape routes increase sharply. Credit analysts, paralegals, tax preparers, and payroll clerks join the trapped category as their transition destinations&mdash;other financial, legal, and administrative roles&mdash;are themselves captured by the expanding automation frontier.
+        </div>
+
+        <p style="font-weight:600; font-size:0.95rem; margin-bottom:0.5rem; color:var(--navy);">Selected cases of trapped and escapable occupations</p>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Occupation</th>
+                    <th>AI Exposure</th>
+                    <th>Escape Exposure</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight">
+                    <td>Credit Authorizers, Checkers, and Clerks</td>
+                    <td>99.2%</td>
+                    <td>48.5%</td>
+                    <td style="color:var(--accent);font-weight:600;">Trapped</td>
+                </tr>
+                <tr class="highlight">
+                    <td>Paralegals and Legal Assistants</td>
+                    <td>98.4%</td>
+                    <td>58.3%</td>
+                    <td style="color:var(--accent);font-weight:600;">Trapped</td>
+                </tr>
+                <tr class="highlight">
+                    <td>Title Examiners, Abstractors, and Searchers</td>
+                    <td>96.1%</td>
+                    <td>77.3%</td>
+                    <td style="color:var(--accent);font-weight:600;">Trapped</td>
+                </tr>
+                <tr class="highlight">
+                    <td>Tax Preparers</td>
+                    <td>95.6%</td>
+                    <td>66.2%</td>
+                    <td style="color:var(--accent);font-weight:600;">Trapped</td>
+                </tr>
+                <tr class="highlight">
+                    <td>Payroll and Timekeeping Clerks</td>
+                    <td>92.8%</td>
+                    <td>57.0%</td>
+                    <td style="color:var(--accent);font-weight:600;">Trapped</td>
+                </tr>
+                <tr class="highlight">
+                    <td>Credit Analysts</td>
+                    <td>90.4%</td>
+                    <td>55.1%</td>
+                    <td style="color:var(--accent);font-weight:600;">Trapped</td>
+                </tr>
+                <tr>
+                    <td>Medical Transcriptionists</td>
+                    <td>100.0%</td>
+                    <td>43.4%</td>
+                    <td style="color:var(--green);font-weight:600;">Escapable</td>
+                </tr>
+                <tr>
+                    <td>Interpreters and Translators</td>
+                    <td>97.4%</td>
+                    <td>37.6%</td>
+                    <td style="color:var(--green);font-weight:600;">Escapable</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>These findings should not be read as forecasts of inevitable displacement. The trapped worker index is a diagnostic tool&mdash;it identifies precisely where the labor market&rsquo;s existing pathways fail, and therefore where targeted intervention would yield the greatest return. Trapped occupational clusters are, by definition, the zones where new roles and hybrid positions are most urgently needed and most likely to emerge. Many of the occupations that will ultimately absorb these workers do not yet exist in standard classification systems: AI-augmented paralegals, automated workflow designers, human-AI coordination specialists. The policy challenge is not to prevent automation but to construct viable transition pathways from trapped clusters toward these emerging categories <em>before</em> workers are forced to navigate the shift without institutional support.</p>
+
+        <p>The chart below maps every high-AI occupation along two dimensions: its <strong>own AI exposure</strong> (x-axis) and the <strong>weighted AI exposure of its most likely career transitions</strong> (y-axis). The diagonal line marks the break-even point&mdash;where escape exposure equals own exposure. Occupations that appear <em>above</em> this line are &ldquo;deepening&rdquo;: workers who leave them tend to land in roles with <em>even higher</em> AI exposure than the jobs they left. Blue circles represent trapped occupations, while green diamonds indicate escapable ones&mdash;jobs whose most common transitions lead to meaningfully lower-exposure destinations. The size of each marker reflects the <strong>trap score</strong> (escape exposure &divide; own exposure): larger markers indicate occupations where the gap between current exposure and available escape routes is most severe.</p>
+
+        <div class="viz-comparison">
+            <div class="viz-panel">
+                <div class="viz-panel-title">Moderate Scenario</div>
+                <iframe src="Viz/Section2/trapped_degree_conservative.html" loading="lazy" style="height:680px;"></iframe>
+            </div>
+            <div class="viz-panel">
+                <div class="viz-panel-title">Aggressive Scenario</div>
+                <iframe src="Viz/Section2/trapped_degree_aggressive.html" loading="lazy" style="height:680px;"></iframe>
+            </div>
+        </div>
+
+        <!-- ─── Sub-section: Economic Mobility of Escape Routes ─── -->
+        <h3 id="economic-mobility" style="margin-top:2.5rem;">Economic Mobility of Escape Routes</h3>
+        <p>The trapped worker analysis above tells us <em>which</em> occupations lack low-AI exit paths. But it leaves a critical question unanswered: when workers do escape high-AI occupations, <strong>can they maintain their income?</strong> Reducing AI exposure is meaningless as a policy goal if the available transitions push workers into economic precarity. To address this, we link CPS-ASEC wage and salary income data (INCWAGE) to the same month-to-month occupational transitions used throughout this brief, focusing on the 16,763 observations where workers moved <em>away</em> from occupations above the 45% AI exposure threshold (&Delta;AI &lt; &minus;0.01).<sup><a href="#fn-income" style="color:var(--blue);">1</a></sup></p>
+
+        <p>For each of the 24 destination occupation groups, we measure two dimensions: the <strong>reduction in AI exposure</strong> it offers (how far workers move from the automation frontier) and the <strong>change in median wage income</strong> relative to the origin pool (median $45,000). The scatter plot below maps every destination along these axes. Bubble size reflects the volume of observed transitions (population-weighted), and a LOWESS curve traces the underlying structural relationship.</p>
+
+        <div class="viz-container">
+            <div class="viz-header"><span class="badge">Interactive</span> Economic Mobility vs. AI Exposure Reduction &mdash; Bubble size = transition volume, dark line = LOWESS trend</div>
+            <iframe src="Viz/Section2/bridge_economic_mobility.html" loading="lazy" style="height:620px;"></iframe>
+        </div>
+
+        <h4 style="color:var(--navy); margin-top:1.5rem;">The structural tradeoff: escaping AI costs income</h4>
+
+        <p>The LOWESS trend line reveals a sobering structural pattern: <strong>the farther workers move from the AI frontier, the more income they tend to lose</strong>. At modest reductions (around 20 percentage points), the trend line sits near +35% income&mdash;these are transitions into management, financial, and professional roles that combine lower AI exposure with higher pay. But as reduction increases beyond 30 percentage points, the trend crosses zero and turns sharply negative, reaching &minus;33% at the highest levels of AI escape. This is not coincidental: the occupations that are <em>farthest</em> from AI automation tend to be manual, service, and care-related jobs that structurally pay less. The labor market, as currently configured, prices safety from AI in the currency of income.</p>
+
+        <h4 style="color:var(--navy); margin-top:1.5rem;">Two routes of escape</h4>
+
+        <p>This structural tradeoff, however, is not destiny. The scatter plot reveals <strong>two distinct escape routes</strong> with radically different consequences:</p>
+
+        <p><strong>The upward route&mdash;cognitive upgrading.</strong> Workers move into management, engineering, legal, or financial specialist roles: occupations that reduce AI exposure by 22&ndash;31 percentage points while <em>increasing</em> income by 20&ndash;122%. Management alone absorbs 10.7 million weighted transitions and delivers a 60% income gain (median $45K &rarr; $72K). Architecture &amp; Engineering (+91%), Legal (+122%), and Computer &amp; Math Science (+63%) offer even larger gains, though with smaller flows. This route leverages existing cognitive skills and organizational knowledge, upgrading workers within the knowledge economy rather than ejecting them from it.</p>
+
+        <p><strong>The downward route&mdash;manual deskilling.</strong> Workers shift into food preparation, cleaning, healthcare support, or protective services: occupations with very low AI exposure (34&ndash;48 pp reduction) but severe income penalties of &minus;33% to &minus;60%. Food Preparation alone absorbs 4.1 million weighted transitions while cutting median income from $45K to $18K. This route trades automation risk for a drastic decline in living standards, effectively erasing years of human capital accumulation.</p>
+
+        <p>A handful of notable exceptions defy the structural tradeoff. <strong>Construction</strong> and <strong>Extraction</strong> sit above the LOWESS curve on the right side of the chart&mdash;physical-skill occupations that offer strong AI protection (42&ndash;48 pp) <em>and</em> maintain or increase income. They represent a <strong>third pathway</strong>&mdash;skilled manual work that pays well&mdash;but one that requires physical capacity and specific trade credentials, limiting its accessibility for the typical office or administrative worker leaving a high-AI role. Conversely, <strong>Office &amp; Administrative</strong> (the large orange dot at the lower left) represents the worst of both worlds: modest AI reduction (21 pp) <em>and</em> a 20% income drop, suggesting that lateral moves within the clerical sector are neither safe nor economically sound.</p>
+
+        <h4 style="color:var(--navy); margin-top:1.5rem;">The policy imperative</h4>
+
+        <p>These two routes are not equally accessible. The upward route into management, engineering, and professional roles requires credentials, professional networks, and organizational capital that most clerical and administrative workers lack. Without intervention, the <strong>path of least resistance</strong> for displaced workers is the downward route: into food service, cleaning, and care work&mdash;occupations that are easy to enter but impossible to build a middle-class life upon. The central policy challenge is therefore not whether escape routes from AI exist&mdash;they do&mdash;but whether <strong>the upward route can be made accessible at scale</strong> through targeted retraining, credentialing pathways, and placement programs <em>before</em> the downward route becomes the default.</p>
+
+        <p id="fn-income" style="font-size:0.8rem; color:var(--gray-500); margin-top:1.5rem; border-top:1px solid var(--gray-200); padding-top:0.8rem;"><sup>1</sup> Income is measured using CPS-ASEC wage and salary income (INCWAGE), which captures labor-market compensation and is the most appropriate measure for comparing occupational transitions. As a robustness check, we replicate the analysis using total personal income (INCTOT, which adds investment income, transfers, and Social Security). Results are nearly identical: the Spearman rank correlation between INCWAGE-based and INCTOT-based income changes across the 24 destination groups is &rho; = 0.997 (p &lt; 0.001), and 23 of 24 groups fall in the same classification tier under both measures.</p>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 6: TEMPORAL EVOLUTION -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section" id="temporal">
+        <div class="section-label">Finding 4</div>
+        <h2>Temporal Evolution: A Shifting Tide</h2>
+        <p>While AI exposure indices measure occupational characteristics at a fixed point, the labor market's behavioral response evolves over time. We classify each observed occupational transition as "toward AI" (moving to a higher-exposure occupation), "away from AI" (moving to a lower-exposure occupation), or "lateral" (similar exposure), and track these flows monthly from 2019 through early 2026.</p>
+
+        <h3>Net Flow and the 2025 Inflection</h3>
+        <p>For each observed occupational transition, we compute the change in AI exposure between origin and destination (&Delta;AI = AI<sub>destination</sub> &minus; AI<sub>origin</sub>). A positive delta means the worker moved to a more exposed occupation; a negative delta means they moved to a less exposed one. The <strong>net flow</strong>&mdash;total weighted transitions moving toward AI minus those moving away&mdash;tells us whether the labor market as a whole is pushing workers <em>into</em> or <em>out of</em> AI-vulnerable occupations in a given year. In the charts below, blue bars indicate years when more workers moved into AI-exposed roles; green bars indicate years when more moved away. We focus primarily on the aggressive scenario, which captures the cognitive AI frontier most relevant to the current LLM era.</p>
+
+        <div class="viz-comparison">
+            <div class="viz-panel">
+                <div class="viz-panel-title">Moderate Scenario</div>
+                <iframe src="Viz/Section2/temporal_ai_flows_conservative.html" loading="lazy"></iframe>
+            </div>
+            <div class="viz-panel">
+                <div class="viz-panel-title">Aggressive Scenario</div>
+                <iframe src="Viz/Section2/temporal_ai_flows_aggressive.html" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <p>The aggressive scenario&mdash;which we argue better captures the current AI frontier&mdash;tells the most striking story. From 2019 through 2023, net flow was <em>positive</em>: the labor market was funneling more workers <em>into</em> AI-exposed cognitive occupations than out of them. Workers were moving toward the very roles that large language models were beginning to disrupt&mdash;legal, financial, analytical, and administrative positions perceived as secure. Then, in <strong>2025</strong>, the direction <strong>inverts</strong>: net flow turns sharply negative at <strong>&minus;1,645,000</strong> weighted transitions. For the first time, the outflow from high-AI cognitive occupations exceeds the inflow. Whether this marks the moment the labor market began pricing in the LLM revolution&mdash;or reflects concurrent shocks like tech layoffs and federal workforce reductions&mdash;is an open question, but the directional shift is unmistakable.</p>
+        <p>The moderate scenario provides a useful contrast. Because it captures only routine, lower-complexity tasks, the net flow was <em>already negative</em> throughout 2019&ndash;2024&mdash;workers were quietly drifting away from the most automatable clerical and data-processing roles, a trend predating ChatGPT. In 2025, this existing outflow <strong>accelerates dramatically</strong> to <strong>&minus;1,043,000</strong>, roughly five times larger than any previous year. The moderate scenario thus shows an acceleration of an existing trend; the aggressive scenario shows a genuine <strong>inversion</strong>&mdash;a qualitatively different and more consequential signal.</p>
+        <p>Early 2026 data (January&ndash;March) suggests a partial rebound: net flow is +520,000 under the moderate scenario and &minus;93,000 under the aggressive. Whether this represents a seasonal correction or a genuine reversal will require additional quarters to assess.</p>
+        <div class="callout">
+            <strong>Important caveats:</strong> Both 2025 and 2026 data are partial-year. The 2025 signal is strong and consistent across both scenarios, but seasonal hiring patterns (e.g., holiday retail, summer construction) can distort short windows. Full-year 2025 and 2026 data will determine whether this inflection is structural or cyclical.
+        </div>
+
+        <h3>Where Do the Outflows Go?</h3>
+        <p>The 2025 inversion raises an immediate question: when workers leave AI-exposed occupations, where do they land? Using CPS month-to-month transitions, we trace every worker whose AI exposure score decreased in 2025 and classify their destination into five categories. The Sankey below maps the six largest source sectors (left) to these destination types (right), revealing a more nuanced picture than a simple "cognitive to manual" narrative.</p>
+
+        <p>The data shows four distinct patterns:</p>
+        <ol>
+            <li><strong>Staying in sector, shifting down the AI ladder (27%).</strong> Over a quarter of workers who reduced their AI exposure did so without leaving their occupation group. An office clerk moves from a data-entry role to a reception desk; a sales associate shifts from an AI-assisted analytics position to a floor role. These are lateral moves within familiar sectors, not dramatic career changes.</li>
+            <li><strong>Upward mobility into Management (12%).</strong> A significant share flows into managerial roles, representing promotions rather than displacement. The largest feeders are Office &amp; Admin (2.2M), Business &amp; Finance (1.6M), and Sales (1.5M). These workers are not fleeing AI; they are being promoted into less automatable leadership positions.</li>
+            <li><strong>Lateral moves into physical and manual sectors (23%).</strong> About a quarter shift to Construction, Transportation, Maintenance &amp; Repair, and Production. The transitions are logical: couriers become truck drivers, stock clerks move to construction labor, customer service reps shift to warehouse roles. These are adjacent-skill moves into sectors where current AI has limited reach.</li>
+            <li><strong>Lateral moves into service sectors (16%).</strong> Another slice moves to Food Service, Healthcare Support, Personal Care, and Protective Service. Typical transitions include cashiers becoming fast-food workers, sales associates moving to waitstaff, and healthcare practitioners shifting to nursing assistant roles. These are predominantly face-to-face, low-AI-exposure occupations.</li>
+        </ol>
+        <p>The remaining 22% move to other cognitive sectors with lower AI exposure, suggesting that the labor market reallocation is neither purely downward nor purely into manual work. It is a complex, multi-directional adjustment where workers exploit whatever path reduces their AI exposure, whether that means a promotion, a lateral shift, or a sector change.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+                Where Do Workers Go When Leaving AI-Exposed Roles? (2025, Aggressive Scenario)
+            </div>
+            <iframe src="Viz/Section2/sankey_outflow_2025_aggressive.html" loading="lazy" style="height:640px;"></iframe>
+        </div>
+
+        <h3>A Closer Look: Asian Workers and the Professional-Cognitive Reversal</h3>
+        <p>The aggregate pattern is especially pronounced among <strong>Asian (non-Hispanic) workers</strong>, who experienced the most dramatic reversal of any racial group. From 2020 through 2024, Asian workers showed the strongest sustained net inflow into AI-exposed occupations, peaking at +3.1% in 2022, driven by concentration in technology, engineering, finance, and professional-cognitive roles. In 2025, the direction inverted to &minus;1.9%, and early 2026 data shows a further deepening to &minus;4.2%.</p>
+        <p>The destination breakdown for Asian workers mirrors the aggregate pattern in some respects but diverges in key ways. The within-sector share is similar (27%), and the management pipeline is slightly stronger (13% vs. 12% overall), reflecting Asian workers' higher concentration in professional-cognitive roles that feed into leadership. However, a notably larger share (28%) moves to other cognitive sectors rather than physical or service work, compared to 22% for the general workforce. This suggests that Asian workers, on average, have more cognitive-adjacent options when exiting high-AI roles. The treemap below places this comparison side by side.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+                Destination Typology: All Workers vs. Asian Workers (2025, Aggressive)
+            </div>
+            <iframe src="Viz/Section2/treemap_destination_typology.html" loading="lazy" style="height:280px;"></iframe>
+        </div>
+
+        <p>The Sankey below shows the seven largest source sectors for Asian workers and how their transitions distribute across destination types.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+                Where Do Asian Workers Go When Leaving AI-Exposed Roles? (2025, Aggressive)
+            </div>
+            <iframe src="Viz/Section2/sankey_asian_outflow_2025_aggressive.html" loading="lazy" style="height:640px;"></iframe>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number">41.7%</div>
+                <div class="label">Toward-AI share, 2021 (aggressive)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number orange">40.6%</div>
+                <div class="label">Toward-AI share, 2024 (aggressive)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number red">40.1%</div>
+                <div class="label">Toward-AI share, 2025 (aggressive)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number green">&minus;1.6M</div>
+                <div class="label">Net flow, 2025 (aggressive)</div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 7: DEMOGRAPHIC DIVERGENCE -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section alt-bg" id="divergence">
+        <div class="section-label">Finding 5</div>
+        <h2>Demographic Divergence Over Time</h2>
+        <p>The preceding sections provided a <em>snapshot</em>&mdash;who is exposed, who is trapped, and how aggregate flows have shifted. This section turns the snapshot into a <em>film</em>: how do these patterns evolve differently for specific demographic groups over time? When we decompose net flow trajectories by education, gender, age, and race, divergent patterns emerge that carry implications for targeted policy intervention.</p>
+
+        <div class="callout" style="border-left-color: #d69e2e;">
+            <strong>&#9888; Note on interpreting temporal charts:</strong> The AI exposure score assigned to each occupation is <strong>fixed</strong>, derived from O*NET task analysis&mdash;it does not change over time. What <em>does</em> change year-to-year is the <strong>composition of the workforce</strong>: which occupations employ more or fewer workers in each CPS sample. Temporal variation in net flow therefore reflects <strong>labor market recomposition</strong>&mdash;workers moving between occupations with different fixed scores&mdash;not a change in the underlying AI risk of any given occupation. Under moderate assumptions, routine-automatable roles shrink and workers drift toward less-exposed occupations. Under aggressive assumptions, the charts look flatter because the occupations workers migrate toward are themselves significantly exposed&mdash;there are fewer safe destinations.<br><br>
+            <em>We note that the interpretation of these flatter trends is still tentative. It is plausible that the flattening reflects a structural ceiling on market-driven adaptation&mdash;but it could also be an artifact of how the aggressive threshold broadens the exposure distribution. Further research with time-varying AI scores (rather than fixed O*NET snapshots) would help disentangle compositional effects from genuine behavioral responses.</em>
+        </div>
+
+        <h3>Education: A Weakening Shield</h3>
+        <p>The net flow charts reveal a striking education paradox. Under the <strong>aggressive scenario</strong>, bachelor&rsquo;s degree holders experience the most volatile swings: strong net inflows <em>into</em> AI-exposed occupations in the early years (drawn by cognitive-professional positions in finance, legal, and administrative management) give way to sharp outflows as the automation frontier catches up. The education premium in mobility&mdash;the ability of highly educated workers to choose their path&mdash;becomes a liability when the paths they choose lead into AI territory. Under <strong>moderate assumptions</strong>, the pattern is simpler: bachelor&rsquo;s holders consistently flow toward AI-exposed roles (because those are the routine-cognitive jobs they gravitate to), while workers with less than high school education show persistent outflow away from AI.</p>
+
+        <div class="viz-comparison">
+            <div class="viz-panel">
+                <div class="viz-panel-title">Moderate Scenario</div>
+                <iframe src="Viz/Section2/demographic_netflow_EDUC_CAT_conservative.html" loading="lazy"></iframe>
+            </div>
+            <div class="viz-panel">
+                <div class="viz-panel-title">Aggressive Scenario</div>
+                <iframe src="Viz/Section2/demographic_netflow_EDUC_CAT_aggressive.html" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <h3>Gender: Volatile Flows, Structural Imbalance</h3>
+        <p>The net flow charts for men and women show periods where the two lines cross&mdash;in some years, women show stronger net outflow from AI-exposed occupations, while in others the pattern reverses. This volatility makes it difficult to declare a clear trend in either direction. What remains consistent, however, is the <em>starting point</em>: women enter the observation period with structurally higher AI exposure due to their concentration in clerical, administrative, and support occupations. The crossing of curves in net flow does not erase this baseline gap&mdash;it reflects year-to-year variation in which gender is moving more actively. Without sustained, directional outflow of women from high-AI roles, the structural imbalance will persist.</p>
+
+        <div class="callout" style="border-left-color: #d69e2e;">
+            <strong>&#9888; Beyond AI:</strong> Gender differences in net flow are not driven solely by AI exposure. The occupations where women concentrate&mdash;administrative support, clerical services, office management&mdash;have been contracting for reasons that predate and extend beyond artificial intelligence: digitization of workflows, organizational flattening, and outsourcing. More recently, federal workforce reductions in 2025 disproportionately affected administrative and support roles in government agencies&mdash;positions with high female representation. These concurrent forces complicate causal attribution: our data captures <em>where</em> workers are moving, but cannot cleanly separate AI-driven displacement from broader sectoral restructuring.
+        </div>
+
+        <div class="viz-comparison">
+            <div class="viz-panel">
+                <div class="viz-panel-title">Moderate Scenario</div>
+                <iframe src="Viz/Section2/demographic_netflow_SEX_LABEL_conservative.html" loading="lazy"></iframe>
+            </div>
+            <div class="viz-panel">
+                <div class="viz-panel-title">Aggressive Scenario</div>
+                <iframe src="Viz/Section2/demographic_netflow_SEX_LABEL_aggressive.html" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <h3>Age: Young Workers Under Sustained Pressure</h3>
+        <p>Workers aged 16&ndash;24 consistently carry the highest AI exposure across all years. Their position at the top of the exposure distribution is stable, not worsening, but it reflects a structural reality: the entry-level occupations available to young Americans (retail, food service, administrative) are precisely those most susceptible to AI automation. Without intervention in career pathway design, each cohort of young workers faces the same elevated risk.</p>
+
+        <div class="viz-comparison">
+            <div class="viz-panel">
+                <div class="viz-panel-title">Moderate Scenario</div>
+                <iframe src="Viz/Section2/demographic_netflow_AGE_BIN_conservative.html" loading="lazy"></iframe>
+            </div>
+            <div class="viz-panel">
+                <div class="viz-panel-title">Aggressive Scenario</div>
+                <iframe src="Viz/Section2/demographic_netflow_AGE_BIN_aggressive.html" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <h3>Race and Ethnicity: The Asian Worker Arc</h3>
+        <p>Under the <strong>aggressive scenario</strong>, Asian (non-Hispanic) workers stand out sharply. From 2020 through 2024, they showed the strongest sustained net inflow into AI-exposed occupations of any racial group&mdash;peaking at +3.1% in 2022&mdash;driven by concentration in technology, engineering, and professional-cognitive roles that were attracting talent and paying premiums. Then, in 2025&ndash;2026, they experienced the most dramatic reversal: &minus;1.9% and &minus;4.2%, the largest net outflow of any group. This arc&mdash;strong inflow followed by sharp reversal&mdash;mirrors the aggregate aggressive-scenario pattern but is amplified for Asian workers, whose occupational profile places them squarely at the frontier of LLM-driven disruption.</p>
+
+        <p>White (non-Hispanic) workers, by contrast, show remarkably stable net flows hovering near zero throughout the aggressive scenario, suggesting their occupational mix is more balanced between exposed and insulated roles. Black and Hispanic workers fall in between, with moderate oscillations and a shared negative turn in 2025. Under the <strong>moderate scenario</strong>, the differentiation is subtler&mdash;most groups drift mildly negative as routine-automatable roles contract&mdash;but Asian workers again diverge, maintaining slightly positive flow even in 2025 while others pull back.</p>
+
+        <div class="callout" style="border-left-color: #d69e2e;">
+            <strong>&#9888; Alternative explanations:</strong> The sharp reversal for Asian workers in 2025&ndash;2026 is consistent with AI-driven disruption of cognitive-professional roles, but it also coincides with other labor market shocks that disproportionately affected this population. The tech industry layoffs of 2023&ndash;2024&mdash;which hit companies with high shares of Asian workers especially hard&mdash;may have triggered occupational transitions that show up as outflows from AI-exposed roles in our data. Similarly, federal workforce reductions beginning in early 2025 displaced large numbers of educated professionals across racial groups. Our methodology cannot isolate AI-specific causation from these concurrent shocks. The pattern is suggestive, but readers should interpret it as a composite signal reflecting multiple forces acting on the same occupational segments simultaneously.
+        </div>
+
+        <div class="viz-comparison">
+            <div class="viz-panel">
+                <div class="viz-panel-title">Moderate Scenario</div>
+                <iframe src="Viz/Section2/demographic_netflow_RACE_ETHN_conservative.html" loading="lazy"></iframe>
+            </div>
+            <div class="viz-panel">
+                <div class="viz-panel-title">Aggressive Scenario</div>
+                <iframe src="Viz/Section2/demographic_netflow_RACE_ETHN_aggressive.html" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 8: CONCLUSIONS & POLICY -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section" id="conclusions">
+        <div class="section-label">Conclusions</div>
+        <h2>Conclusions and Policy Implications</h2>
+        <p>Our analysis reveals a U.S. labor market where AI-driven disruption is concentrated, gendered, and often inescapable for the workers most affected. Three overarching conclusions emerge:</p>
+
+        <p><strong>First</strong>, AI exposure follows a cognitive gradient, not a manual one. The most exposed workers are not on factory floors but in offices, courthouses, and retail counters. This contradicts popular narratives about automation and demands a recalibration of workforce policy toward white-collar and service-sector vulnerability.</p>
+
+        <p><strong>Second</strong>, existing labor market mobility patterns are insufficient to protect exposed workers. Under aggressive assumptions, nearly half (47.8%) of occupations where AI can automate more than 45% of tasks are trapped&mdash;their workers&rsquo; most common career moves lead to equally threatened destinations. This represents a structural failure that organic market adjustment cannot resolve within an acceptable timeframe.</p>
+
+        <p><strong>Third</strong>, there are signs that the labor market may be beginning to adapt&mdash;but the evidence is preliminary and the causal mechanism uncertain. Under the aggressive scenario, net worker flow toward AI-exposed cognitive occupations inverted for the first time in 2025 (&minus;1.6 million weighted transitions). This <em>could</em> signal that workers and employers are starting to price in the LLM revolution&mdash;but it also coincides with large-scale tech layoffs (2023&ndash;2024), federal workforce reductions (2025), and broader sectoral restructuring that independently displaced workers from the same occupations our AI index flags as exposed. Early 2026 data shows a partial rebound, further complicating interpretation. We flag this inflection as a signal worth monitoring, not a confirmed structural shift. If sustained, it creates a narrow policy window to complement market-driven adjustment; if it reverses, it underscores the need for more proactive intervention.</p>
+
+        <p><strong>A necessary caveat on all three conclusions:</strong> this analysis&mdash;like all current research on AI and labor&mdash;maps the world as it exists today onto occupation categories that were defined before the AI era. History suggests that technological revolutions do not merely destroy jobs; they create entirely new categories of work that are invisible to contemporaneous classification systems. The occupations that will ultimately absorb displaced workers&mdash;AI workflow coordinators, human-machine teaming specialists, automated systems auditors&mdash;may not yet exist in any statistical taxonomy. Our trapped worker index identifies where <em>current</em> pathways fail, but it cannot map pathways to jobs that have not yet been invented. The policy challenge is therefore not only to optimize transitions within the existing occupational landscape, but to accelerate the emergence and accessibility of these new roles&mdash;particularly for workers whose current positions offer no visible exit.</p>
+
+        <p>With this framing in mind, these findings suggest five priority areas:</p>
+
+        <div class="policy-grid">
+            <div class="policy-card">
+                <div class="icon">1</div>
+                <h4>Targeted Reskilling for Trapped Occupations</h4>
+                <p>Under aggressive assumptions, 47.8% of occupations exceeding 45% AI exposure lead only to equally exposed destinations. Our transition matrix identifies specific trapped clusters where intervention is most urgent and feasible:</p>
+                <ul style="font-size:0.9rem; margin:0.5rem 0; padding-left:1.2rem;">
+                    <li><strong>Clerical &rarr; Healthcare Support:</strong> Medical secretaries, billing clerks, and legal administrative assistants (85&ndash;95% exposure) currently transition mostly to other clerical roles. Credential-bridging programs into medical records technology, health information management, or clinical administration could redirect these workers toward growing, lower-exposure healthcare roles.</li>
+                    <li><strong>Financial-Administrative &rarr; Skilled Trades:</strong> Credit authorizers, payroll clerks, and tax preparers (93&ndash;99% exposure) are trapped in a financial-administrative loop. Apprenticeship pipelines into HVAC, electrical, or maintenance technician roles&mdash;occupations our data shows have low AI exposure and strong absorption capacity&mdash;offer a concrete exit.</li>
+                    <li><strong>Administrative &rarr; Technical Operations:</strong> Office support workers in the administrative cluster could be retrained for IT support, logistics coordination, or facilities management&mdash;roles in adjacent mobility communities with substantially lower exposure scores.</li>
+                </ul>
+            </div>
+            <div class="policy-card">
+                <div class="icon">2</div>
+                <h4>Invest in Non-Degree Pathways</h4>
+                <p>Under moderate assumptions, education shields workers: graduate degree holders face 11.9% exposure vs. 22.0% for some-college workers. But under the aggressive scenario&mdash;the more relevant benchmark today&mdash;this gap <strong>collapses</strong>: bachelor&rsquo;s (35.7%), graduate (35.6%), and some-college (33.2%) workers converge. The implication is clear: degree attainment alone is no longer protective. Investment should target:</p>
+                <ul style="font-size:0.9rem; margin:0.5rem 0; padding-left:1.2rem;">
+                    <li><strong>AI complementarity certifications</strong>&mdash;training workers to supervise, audit, and collaborate with AI systems rather than compete against them</li>
+                    <li><strong>Technical micro-credentials</strong> in fields our data shows have low exposure and high absorption: HVAC, electrical, healthcare technology, logistics</li>
+                    <li><strong>Community college fast-track programs</strong> specifically designed for the 70%+ of workers without a bachelor&rsquo;s degree, bridging from trapped clerical clusters to technical operations</li>
+                </ul>
+            </div>
+            <div class="policy-card">
+                <div class="icon">3</div>
+                <h4>Gender-Aware Workforce Development</h4>
+                <p>Women face 29% higher baseline exposure than men (22.1% vs. 17.1%), concentrated in four sectors: Office &amp; Administrative Support (44.4% exposure, 72% female), Sales (38.3%), Healthcare Support, and Financial Specialists. The net flow data shows volatile year-to-year swings&mdash;but no sustained directional escape. Specific interventions:</p>
+                <ul style="font-size:0.9rem; margin:0.5rem 0; padding-left:1.2rem;">
+                    <li><strong>Secretaries &amp; admin assistants &rarr; project management / operations coordination</strong>&mdash;leveraging existing organizational skills into roles with lower AI exposure</li>
+                    <li><strong>Bookkeeping clerks &rarr; financial technology / compliance</strong>&mdash;retaining domain knowledge while moving away from automatable transaction processing</li>
+                    <li><strong>Employer incentives</strong> for hiring women from high-AI clerical roles into lower-exposure positions within the same firm, reducing the friction of cross-sector transitions</li>
+                </ul>
+            </div>
+            <div class="policy-card">
+                <div class="icon">4</div>
+                <h4>Redesign Entry-Level Career Pathways</h4>
+                <p>Workers aged 16&ndash;24 face the highest above-45% concentration under moderate assumptions (18.4%) and the highest mean exposure (25.2% moderate, 31.3% aggressive) because the default entry-level labor market&mdash;cashiers, food service, retail salespersons&mdash;sits within high-AI exposure clusters. These are not stepping-stone jobs; our network data shows they loop back into equally exposed roles. Interventions should target the <em>on-ramp</em>:</p>
+                <ul style="font-size:0.9rem; margin:0.5rem 0; padding-left:1.2rem;">
+                    <li><strong>Subsidized first-job programs</strong> in low-exposure growth sectors (construction, maintenance, healthcare support) rather than defaulting to retail</li>
+                    <li><strong>High school career counseling reform</strong> incorporating AI exposure data&mdash;making occupational risk as visible to students as salary data</li>
+                    <li><strong>Paid apprenticeships in skilled trades</strong> as a viable alternative to the cashier&rarr;retail&rarr;food service loop our data reveals</li>
+                </ul>
+            </div>
+            <div class="policy-card">
+                <div class="icon">5</div>
+                <h4>Monitor the 2025&ndash;2026 Inflection</h4>
+                <p>Under the aggressive scenario, net worker flow inverted for the first time in 2025 (&minus;1.6M weighted transitions). But early 2026 shows a partial rebound (+520K moderate, &minus;93K aggressive), and concurrent shocks (tech layoffs, federal reductions) complicate causal attribution. This is not a confirmed structural shift&mdash;it is a signal that demands systematic tracking:</p>
+                <ul style="font-size:0.9rem; margin:0.5rem 0; padding-left:1.2rem;">
+                    <li><strong>Quarterly CPS monitoring</strong> of net flow direction, disaggregated by demographic group and occupation cluster</li>
+                    <li><strong>Two benchmark scenarios:</strong> if outflows sustain through 2026, policymakers should complement market adjustment with reskilling investment; if flows revert to pre-2025 patterns, more proactive intervention is needed</li>
+                    <li><strong>Integrate with time-varying AI scores</strong>&mdash;our current index is a fixed O*NET snapshot; future iterations should update exposure scores as AI capabilities evolve</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 9: METHODOLOGICAL ANNEX -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="section annex" id="annex">
+        <div class="section-label">Annex</div>
+        <h2>Methodological Annex</h2>
+
+        <h3>A. Data Source: Current Population Survey</h3>
+        <p>We use the CPS Basic Monthly microdata, accessed via IPUMS CPS, covering January 2019 through early 2026. The CPS is a nationally representative survey of approximately 60,000 U.S. households conducted by the Census Bureau for the Bureau of Labor Statistics. Its rotating 4-8-4 panel design allows tracking individuals across up to 8 monthly interviews. We exploit this panel structure to observe occupational transitions: instances where an individual (identified by CPSIDP) reports a different Census occupation code in a subsequent interview month.</p>
+        <ul>
+            <li><strong>Sample:</strong> 595,104 occupational transitions across 630+ unique Census occupation codes.</li>
+            <li><strong>Person identifier:</strong> CPSIDP (unique within CPS rotation group).</li>
+            <li><strong>Weights:</strong> WTFINL (final person weight), divided by 10,000 to produce annual population estimates. Income analyses use ASECWT (Annual Social and Economic Supplement weight).</li>
+            <li><strong>Demographics:</strong> AGE, SEX, EDUC recovered from raw CPS fixed-width data and merged via CPSIDP and interview date. 100% match rate.</li>
+        </ul>
+
+        <h3>B. AI Exposure Index Construction</h3>
+        <p>AI exposure scores are constructed from O*NET work activity data covering 879 occupations. For each occupation, we identify the share of work activities whose complexity level falls at or below a specified threshold:</p>
+        <ul>
+            <li><strong>Moderate scenario (threshold &le;4):</strong> Only tasks with complexity level 4 or below are classified as automatable. Mean exposure: 19.4%. 214 occupations (24.3%) score 0% exposure.</li>
+            <li><strong>Aggressive scenario (threshold &le;6):</strong> Tasks up to complexity level 6 are classified as automatable. Mean exposure: 32.3%. Only 26 occupations (3.0%) score 0%.</li>
+            <li><strong>Correlation:</strong> r = 0.49, confirming the two measures capture distinct aspects of AI risk (routine-task automation vs. cognitive-task automation).</li>
+        </ul>
+
+        <h3>C. Occupation Code Crosswalk</h3>
+        <p>CPS uses Census 4-digit occupation codes; AI scores are coded in O*NET format (XX-XXXX.XX). We construct a three-stage crosswalk:</p>
+        <ul>
+            <li><strong>Step 1:</strong> O*NET codes are truncated to 6-digit SOC (XX-XXXX). Multiple O*NET specialties within a SOC are averaged.</li>
+            <li><strong>Step 2:</strong> SOC codes are mapped to Census OCC using the Census Bureau 2018 crosswalk file. Multiple SOC codes mapping to a single Census OCC are averaged.</li>
+            <li><strong>Step 3:</strong> For unmatched SOC codes, hierarchical parent matching is applied (exact &rarr; XX-XXY0 &rarr; XX-XX00 &rarr; XX-X000).</li>
+            <li><strong>Coverage:</strong> 493 Census OCC codes matched (from 763 SOC codes), covering 82.0% of all observed transitions (487,690 of 595,104).</li>
+        </ul>
+
+        <h3>D. Occupational Communities</h3>
+        <p>Occupational groups in this analysis use the standard 2-digit Census occupation code prefix, mapped to 25 major groups (e.g., Management, Office &amp; Administrative Support, Sales). The Louvain community detection algorithm was applied to the full transition network in a separate analysis (Section 1), identifying 21 mobility communities. Both groupings are used where appropriate.</p>
+
+        <h3>E. Trapped Worker Index</h3>
+        <p>For each occupation exceeding 45% AI exposure (i.e., where nearly half of core tasks are plausibly automatable), we identify the top 5 transition destinations from the observed origin-destination transition rate matrix. The "weighted escape exposure" is calculated as:</p>
+        <p style="text-align:center;font-style:italic;margin:1rem 0;">Escape Exposure = &Sigma;(transition_rate<sub>i</sub> &times; AI_score<sub>dest_i</sub>) / &Sigma;(transition_rate<sub>i</sub>)</p>
+        <p>An occupation is classified as "trapped" if its weighted escape exposure also exceeds 45%. We use a fixed absolute threshold (45%) rather than a relative quintile cutoff to ensure consistent comparisons across scenarios: the same standard of vulnerability applies regardless of the AI capability assumptions. Under moderate assumptions, 9 of 38 occupations above the threshold (23.7%) are trapped; under aggressive assumptions, 48 of 111 (43.2%). The pattern is intuitive: as AI capabilities expand, more occupations cross the 45% threshold <em>and</em> a larger share of them are trapped, because their transition destinations are also captured by the broadening automation frontier.</p>
+
+        <h3>F. Temporal Analysis</h3>
+        <p>AI exposure scores are time-invariant (measured at a single point from O*NET). Temporal patterns reflect changes in <em>worker mobility behavior</em>&mdash;whether workers are moving toward or away from high-AI occupations over time. For each transition, we compute &Delta;AI = AI(destination) &minus; AI(origin). Transitions are classified as "toward AI" (&Delta; > 0), "away from AI" (&Delta; < 0), or "lateral" (&Delta; = 0). Monthly and yearly flow volumes are population-weighted using WTFINL.</p>
+
+        <h3>G. Statistical Notes</h3>
+        <ul>
+            <li>All estimates are weighted using CPS final person weights (WTFINL / 10,000).</li>
+            <li>Quintile boundaries are calculated on the continuous distribution of AI exposure scores across all transitions.</li>
+            <li>The Gini coefficient measures inequality of AI exposure <em>across occupation groups</em>, not individuals. A value of 0.50 indicates that a few sectors absorb most of the total AI exposure.</li>
+            <li>The HHI (Herfindahl-Hirschman Index) measures concentration of AI exposure by occupation group.</li>
+            <li>2025 and 2026 data are partial (January through the latest available CPS releases) and should be interpreted as leading indicators, not full-year estimates.</li>
+            <li>Demographics include AGE, SEX, EDUC, RACE, and HISPAN variables recovered from raw CPS data.</li>
+        </ul>
+
+        <h3>H. Key Limitations</h3>
+        <ul>
+            <li><strong>Static AI exposure scores:</strong> Our index is derived from a single O*NET snapshot and does not change over time. Occupations currently scored as low-exposure may become high-exposure as AI capabilities evolve. Temporal patterns in our analysis therefore reflect <em>worker movement between occupations with fixed scores</em>, not changes in AI risk itself. Future work should incorporate time-varying exposure scores as AI deployment data becomes available.</li>
+            <li><strong>Causal identification:</strong> Our analysis is descriptive, not causal. Observed net flows away from AI-exposed occupations in 2025 coincide with tech industry layoffs (2023&ndash;2024), federal workforce reductions (2025), and broader sectoral restructuring. We cannot isolate AI-specific effects from these concurrent shocks using CPS data alone.</li>
+            <li><strong>Transition pathways as averages:</strong> The trapped worker index identifies the <em>most common</em> transitions from each occupation, not all possible transitions. Individual workers may find escape routes that do not appear in aggregate patterns, particularly through geographic mobility or industry switching not captured at the occupation level.</li>
+            <li><strong>Static occupational taxonomy:</strong> Perhaps the most fundamental limitation. Our analysis maps vulnerability onto occupations as they exist today, but technological revolutions historically create entirely new job categories that are invisible to contemporaneous classification systems. The occupations that will ultimately absorb displaced workers may not yet appear in any Census code or O*NET listing. Our trapped worker index identifies where <em>current</em> pathways fail&mdash;it cannot map pathways to jobs that have not yet been invented. Readers should interpret our findings as a diagnostic of present-day structural risk, not as a prediction of permanent displacement.</li>
+        </ul>
+
+        <h3>I. Reproducibility</h3>
+        <p>All analyses are produced by a single Python script (<code>section2_vulnerability_analysis.py</code>) that generates all CSV outputs and interactive HTML visualizations. The script requires: pandas, numpy, scipy, plotly, and access to the source data files. Running <code>python section2_vulnerability_analysis.py</code> reproduces all results.</p>
+
+        <h3>J. Occupational Transition Matrix</h3>
+        <p>The heatmap below presents the top 20 &times; 20 occupational transitions by volume. Rows represent origin occupations and columns represent destinations. Color intensity reflects weighted transition volume (population-weighted using WTFINL). The matrix is ordered to reveal cluster structure: occupations belonging to the same mobility community are grouped together, making within-community flow density and cross-community bridges visually apparent. Off-diagonal hot spots identify the most common career pathways workers actually use.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">
+
+                Top 20 &times; 20 Occupational Transition Matrix (Hierarchically Clustered, Values in Thousands)
+            </div>
+            <iframe src="Viz/Section2/transition_occupation_heatmap.html" loading="lazy" style="height:850px;"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2026 Future Impact Group. Analysis based on IPUMS CPS microdata and O*NET work activity data.<br>
+        For questions or data access, contact the authors.
+    </footer>
+
+</div>
+
+<script>
+    // Tab switching
+    function switchTab(event, panelId) {
+        const tabGroup = event.target.closest('.viz-tabs');
+        tabGroup.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        tabGroup.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+        event.target.classList.add('active');
+        document.getElementById(panelId).classList.add('active');
+    }
+
+    // Active nav highlighting on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.side-nav a[href^="#"]');
+
+    function updateActiveNav() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    }
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+
+    // Smooth scroll
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            document.querySelector('.side-nav').classList.remove('open');
+        });
+    });
+</script>
+
+</body>
+</html>

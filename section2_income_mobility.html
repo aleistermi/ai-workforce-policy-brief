@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Mobility Analysis | Future Impact Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a365d;
+            --dark-navy: #0f2440;
+            --blue: #2b6cb0;
+            --light-blue: #ebf4ff;
+            --accent: #e53e3e;
+            --accent-light: #fff5f5;
+            --gray-50: #f7fafc;
+            --gray-100: #edf2f7;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e0;
+            --gray-500: #718096;
+            --gray-600: #4a5568;
+            --gray-700: #2d3748;
+            --gray-800: #1a202c;
+            --green: #38a169;
+            --orange: #dd6b20;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-700);
+            line-height: 1.7;
+            background: #fff;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-navy) 100%);
+            color: #fff;
+            padding: 3rem 3rem 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.8rem;
+        }
+        .hero .subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+        .section {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .section:last-child { border-bottom: none; }
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 2rem 0 0.8rem;
+        }
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 1.5rem 0 0.6rem;
+        }
+        p {
+            max-width: 720px;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .stat-card {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+        .stat-card .number.green { color: var(--green); }
+        .stat-card .number.red { color: var(--accent); }
+        .stat-card .number.orange { color: var(--orange); }
+        .stat-card .label {
+            font-size: 0.78rem;
+            color: var(--gray-500);
+            margin-top: 0.4rem;
+        }
+        .takeaway-box {
+            background: var(--light-blue);
+            border-left: 4px solid var(--blue);
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .takeaway-box h3 { margin: 0 0 0.8rem; font-size: 0.95rem; }
+        .takeaway-box ul { list-style: none; padding: 0; }
+        .takeaway-box li {
+            padding: 0.4rem 0 0.4rem 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+        .takeaway-box li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0.75rem;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--blue);
+        }
+        .callout {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .callout.blue {
+            background: var(--light-blue);
+            border-left-color: var(--blue);
+        }
+        .callout strong { color: var(--navy); }
+        .viz-container {
+            margin: 2rem 0;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .viz-container .viz-header {
+            background: var(--gray-50);
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .viz-container .viz-header .badge {
+            background: var(--blue);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .viz-container iframe {
+            width: 100%;
+            height: 520px;
+            border: none;
+        }
+        .viz-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .viz-panel {
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .viz-panel-title {
+            background: var(--gray-50);
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            text-align: center;
+        }
+        .viz-panel iframe {
+            width: 100%;
+            height: 480px;
+            border: none;
+        }
+        table.demo-table {
+            border-collapse: collapse;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.85rem;
+            width: 100%;
+            max-width: 720px;
+        }
+        table.demo-table th, table.demo-table td {
+            padding: 0.5rem 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        table.demo-table th {
+            background: var(--gray-50);
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.8rem;
+        }
+        table.demo-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+        table.demo-table tr:hover { background: var(--gray-50); }
+        .footnote {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            margin-top: 2rem;
+            border-top: 1px solid var(--gray-200);
+            padding-top: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- HERO -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="hero">
+        <h1>Income Mobility of AI-Displaced Workers</h1>
+        <p class="subtitle">When workers escape high-AI occupations, what happens to their income? An individual-transition analysis of economic outcomes across 25 destination occupation groups.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- KEY NUMBERS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-label">At a Glance</div>
+        <h2>The Income Mobility Landscape</h2>
+
+        <p>The previous section mapped the structural tradeoff between AI protection and income, comparing each destination against a single pooled origin baseline ($45K). That approach reveals the broad landscape but treats all displaced workers as interchangeable. Here we refine the analysis: instead of a pooled baseline, we compare each transition against <strong>its own origin occupation&rsquo;s income</strong>, asking whether a worker&rsquo;s new occupation typically pays more or less than the one they left. This origin-specific approach lets us classify every transition as upward, lateral, or downward, and answer a sharper question: <strong>what share of workers actually gain or lose income when they escape high-AI occupations?</strong></p>
+
+        <p>We link CPS-ASEC wage and salary income data (INCWAGE) to 115,942 observed transitions where workers moved away from occupations with AI exposure above 45% under the aggressive scenario, covering 2019&ndash;2025. For each transition, we assign the weighted-average income of the origin occupation (lagged one year to reflect ASEC timing) and the destination occupation, then classify the move as <strong>Upward</strong> (income gain &gt;10%), <strong>Lateral</strong> (&plusmn;10%), or <strong>Downward</strong> (loss &gt;10%). These thresholds reflect occupation-level income differences, not individual-level wage tracking.</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number green">41.9%</div>
+                <div class="label">Upward mobility<br>(income gain &gt;10%)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">22.7%</div>
+                <div class="label">Lateral mobility<br>(&plusmn;10%)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number red">35.5%</div>
+                <div class="label">Downward mobility<br>(income loss &gt;10%)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number orange">115,942</div>
+                <div class="label">Observed transitions<br>from high-AI occupations</div>
+            </div>
+        </div>
+
+        <div class="callout blue">
+            <strong>Methodological note:</strong> Income is measured as the weighted-average annual wage and salary income (INCWAGE) for each occupation&ndash;year cell, not individual-level earnings. Because the ASEC collects prior-year income in March, the origin occupation&rsquo;s income is lagged by one year. This approach captures the <em>structural income landscape</em> of each occupation rather than tracking individual wage trajectories. As a robustness check, results using total personal income (INCTOT) are nearly identical (&rho; = 0.997). For each year from 2019 through 2024, origin income uses the ASEC from the prior year and destination income uses the ASEC from the transition year. For 2025 transitions, since no ASEC 2025 is yet available, destination income uses 2024 ASEC data as a proxy; occupation-level structural incomes change slowly year-to-year, making this a reasonable approximation.
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 1: MOBILITY BY DESTINATION -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-label">Destination Analysis</div>
+        <h2>Not All Exits Are Equal</h2>
+
+        <p>The aggregate numbers (43% upward, 35% downward) mask enormous variation across destinations. The chart below decomposes income mobility for each of the 25 destination occupation groups, focusing on workers escaping high-AI occupations.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">Income mobility by destination, workers leaving high-AI occupations (&gt;45% aggressive exposure)</div>
+            <iframe src="Viz/Section2/income_mobility_escape_highAI.html" loading="lazy" style="height:700px;"></iframe>
+        </div>
+
+        <h3>The upward destinations</h3>
+        <p>Engineering leads with the highest upward mobility rate: workers who move from high-AI roles into engineering positions experience a median income increase of +22%, with median destination pay of $106K. Management, the largest absorber by volume (42 million weighted transitions), delivers a +30% median wage gain (to $104K). Computer &amp; Math (+19%), Healthcare Practitioners (+18%), and Financial Specialists (+12%) round out the top tier: all destinations where more than 60% of transitions result in upward mobility.</p>
+
+        <h3>The downward destinations</h3>
+        <p>At the bottom, <strong>Food Preparation</strong> absorbs 14.2 million weighted transitions with a median wage decline of &minus;25% (destination median: $22K). <strong>Personal Care</strong> (&minus;29%), <strong>Cleaning &amp; Grounds</strong> (&minus;27%), and <strong>Farming &amp; Forestry</strong> (&minus;28%) all show over 55% of transitions resulting in downward mobility. These are the occupations where the &ldquo;downward route&rdquo; identified in the escape-route analysis translates into concrete income destruction.</p>
+
+        <h3>The ambiguous middle</h3>
+        <p><strong>Office &amp; Admin Support</strong> is particularly notable: despite absorbing the largest volume of transitions (70 million weighted), it delivers essentially no income change (median &minus;0.4%). This confirms that lateral moves within the clerical sector are neither escapes from AI nor paths to economic advancement; they are treading water. <strong>Construction</strong>, which the escape-route analysis flagged as a potential third pathway, shows a &minus;24% median wage decline here, suggesting that while it offers strong AI protection, the income penalty is steeper than the occupation-level median suggested, likely because workers arriving from high-AI cognitive roles carry higher origin wages.</p>
+
+        <h3>How does this compare to the broader labor market?</h3>
+        <p>The patterns above are specific to workers leaving high-AI occupations. But are these outcomes unique to AI displacement, or do they reflect the general income landscape of each destination? The chart below shows the same mobility breakdown for <em>all</em> occupational transitions in the economy, regardless of origin AI exposure.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">Income mobility by destination, all occupational transitions (baseline)</div>
+            <iframe src="Viz/Section2/income_mobility_by_destination.html" loading="lazy" style="height:700px;"></iframe>
+        </div>
+
+        <p>The destination ranking is largely the same: Management and Engineering lead in both scenarios, while Food Preparation and Personal Care sit at the bottom. This tells us that the income geography of the labor market is structural, not specific to AI displacement. What <em>is</em> different is the magnitude: high-AI escapees experience steeper drops in manual destinations (Construction, Production, Farming) because their origin incomes are higher. In other words, the same destination that represents a lateral move for a retail worker can mean a 25% pay cut for someone coming from a high-AI cognitive role.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 2: WAGE CHANGE DISTRIBUTIONS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-label">Distribution Analysis</div>
+        <h2>Income Changes Distribution</h2>
+
+        <p>Medians can obscure important heterogeneity. A destination with a +20% median wage change might still send 30% of workers into income decline. The box plots below show the full distribution of wage changes for each destination, revealing the spread of outcomes workers can expect.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">Wage change distribution by destination, box: IQR, diamond: mean, whiskers: 1.5&times;IQR</div>
+            <iframe src="Viz/Section2/income_mobility_distributions.html" loading="lazy" style="height:580px;"></iframe>
+        </div>
+
+        <p>Several patterns emerge. First, <strong>variance increases with median wage gain</strong>: the highest-paying destinations (Management, Engineering, Computer &amp; Math) also show the widest distributions, with interquartile ranges spanning 50&ndash;100 percentage points. This means the upward route is high-reward but also high-variance: some workers double their income while others in the same destination category see modest gains or even losses.</p>
+
+        <p>Second, the <strong>downward destinations are more compressed</strong>. Food Preparation, Cleaning, and Personal Care have tight, uniformly negative distributions: nearly everyone who lands there takes a similar hit. There is little upside variance to hope for.</p>
+
+        <p>Third, <strong>every single destination has some workers experiencing downward mobility</strong>. Even Management (the best destination overall) shows a lower whisker extending to approximately &minus;50%. This reflects the fact that workers arriving from the highest-paying high-AI occupations (Legal at $97K, Computer &amp; Math at $84K) can still experience relative income loss even when moving to a well-paying destination.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 3: DEMOGRAPHICS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-label">Demographic Analysis</div>
+        <h2>Who Achieves Upward Mobility?</h2>
+
+        <p>A critical policy question is whether income mobility outcomes differ systematically by demographics. If certain groups are disproportionately funneled into downward-mobility destinations, then AI displacement could exacerbate existing labor market inequalities. The charts below decompose mobility rates by gender, age, education, and race/ethnicity.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">Income mobility by demographics, workers escaping high-AI occupations</div>
+            <iframe src="Viz/Section2/income_mobility_demographics.html" loading="lazy" style="height:800px;"></iframe>
+        </div>
+
+        <h3>Gender</h3>
+        <p>Women escaping high-AI occupations achieve slightly higher upward mobility rates (<strong>44.9%</strong>) than men (<strong>40.8%</strong>), with correspondingly lower downward mobility (32.8% vs. 37.0%). This likely reflects a measurement artifact rather than a genuine advantage: women disproportionately come from lower-paying high-AI origin occupations like Office &amp; Admin (median $43K), so the &gt;10% threshold for "upward" is easier to clear in absolute terms. Men more often originate from higher-paying cognitive roles where the bar is steeper. The gap tells us more about the composition of origin occupations than about differential access to better destinations.</p>
+
+        <h3>Age</h3>
+        <p>The youngest workers (16&ndash;24) show the highest upward mobility rate at <strong>49.6%</strong>, declining monotonically to <strong>41.0%</strong> for workers aged 55&ndash;64, before ticking up slightly to 41.4% for those 65+. This age gradient is consistent with lifecycle wage dynamics: younger workers have lower starting wages, making it easier to achieve a &gt;10% gain when switching occupations. Older workers, already at or near their peak earnings, face a higher bar.</p>
+
+        <h3>Education</h3>
+        <p>Strikingly, education level has <strong>almost no effect</strong> on upward mobility rates among high-AI escapees. Bachelor&rsquo;s degree holders (44.1%), those with graduate degrees (41.9%), some college (43.9%), high school (41.6%), and even less than high school (43.5%) all cluster within a 3-percentage-point band. This is a conditional result: it tells us that once a worker has already left a high-AI occupation, their education level does not meaningfully predict whether they land in an upward or downward destination. It does <em>not</em> mean education is irrelevant, since it likely shapes which destinations are accessible in the first place.</p>
+
+        <h3>Race and Ethnicity</h3>
+        <p>Upward mobility rates are remarkably similar across racial and ethnic groups: Asian (non-Hispanic) workers lead at <strong>44.7%</strong>, followed by Other (43.8%), White (non-Hispanic) at 43.3%, Black (non-Hispanic) at 42.7%, and Hispanic at 42.1%. The 2.6-percentage-point spread is narrow, suggesting that conditional on leaving a high-AI occupation, race/ethnicity does not strongly predict income mobility direction. However, this conditional finding may mask disparities in <em>who gets displaced</em> and <em>which destinations are accessible</em> in the first place.</p>
+
+        <div class="callout blue">
+            <strong>Important caveat:</strong> These demographic breakdowns are <em>conditional</em> on already having left a high-AI occupation. They do not tell us whether all groups are equally likely to be displaced, nor whether they have equal access to the upward-mobility destinations. Disparities in who gets pushed out and which doors are open to them may well exist upstream of what this analysis captures.
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 4: TEMPORAL -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-label">Temporal Analysis</div>
+        <h2>Income Mobility Over Time: A Tightening Squeeze</h2>
+
+        <p>Has the income mobility landscape changed as AI capabilities have advanced? The chart below tracks the share of upward, lateral, and downward mobility among high-AI escapees from 2019 through 2025.</p>
+
+        <div class="viz-container">
+            <div class="viz-header">Income mobility trends 2019&ndash;2025, workers escaping high-AI occupations</div>
+            <iframe src="Viz/Section2/income_mobility_temporal.html" loading="lazy" style="height:450px;"></iframe>
+        </div>
+
+        <p>The temporal pattern is <strong>volatile, not monotonic</strong>. In 2020, upward mobility peaked at <strong>49.1%</strong> while downward mobility sat at 30.3%, a 19-point gap favoring positive outcomes. By 2021, the pandemic-era labor market reshuffling pushed downward mobility sharply upward to <strong>39.4%</strong> while upward fell to 37.5%, briefly inverting the balance (gap: &minus;2.0pp).</p>
+
+        <p>The post-pandemic recovery in 2022&ndash;2023 restored the upward advantage fully, with upward mobility rebounding to <strong>47.7%</strong> in 2023 and the gap widening back to +16 points. But in <strong>2024</strong> the lines converge again: upward falls to 37.9%, downward rises to 37.5%, effectively a dead heat (gap: +0.4pp). And in <strong>2025</strong>, for the first time outside the pandemic shock, <strong>downward mobility exceeds upward</strong>: 37.6% downward vs. 34.9% upward (gap: &minus;2.7pp). A worker escaping a high-AI occupation in 2025 was more likely to land in a lower-paying destination than a higher-paying one.</p>
+
+        <p>Meanwhile, <strong>lateral mobility has risen steadily</strong>, from roughly 20% in the 2019&ndash;2023 period to 24.6% in 2024 and <strong>27.5%</strong> in 2025. An increasing share of escapees are landing in destinations with pay essentially equivalent to what they left, suggesting that the &ldquo;middle ground&rdquo; between upward and downward outcomes is widening even as the upward route narrows.</p>
+
+        <p>The pattern is better described as <strong>two distinct compressions</strong>, one pandemic-driven (2021) and one coinciding with the acceleration of large language model deployment (2024&ndash;2025). The key difference: the 2021 compression reversed within a year, while the 2024&ndash;2025 compression has deepened. Whether this reflects direct AI labor market effects (destinations themselves losing value as automation spreads), destination saturation (more escapees competing for the same &ldquo;good&rdquo; routes), or a compositional shift (higher-paid workers entering the transition pool, raising the bar for &ldquo;upward&rdquo;) remains an open empirical question. What is clear is that the favorable conditions of 2020 and 2023, when upward mobility exceeded downward by 15&ndash;19 percentage points, <strong>have not held</strong>.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- TAKEAWAYS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-label">Synthesis</div>
+        <h2>Policy Implications</h2>
+
+        <div class="takeaway-box">
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li><strong>The upward route is viable but narrowing fast.</strong> 42% of high-AI escapees achieve income gains overall, but the rate has plunged from 49% (2020) to 35% (2025). In 2025, for the first time outside the pandemic, downward mobility exceeded upward&mdash;a worker leaving a high-AI occupation was more likely to lose income than to gain it.</li>
+                <li><strong>Two distinct compressions frame the trend.</strong> A pandemic shock (2021) reversed within a year; the current LLM-era compression (2024&ndash;2025) has deepened instead. The favorable 15&ndash;19pp upward gap of 2020 and 2023 has not returned.</li>
+                <li><strong>Lateral mobility is absorbing the squeeze.</strong> The share of transitions with essentially no income change rose from ~20% (2019&ndash;2023) to 27.5% in 2025. The &ldquo;middle ground&rdquo; is widening as the upward route narrows&mdash;escapees increasingly tread water rather than advance.</li>
+                <li><strong>Education does not predict mobility direction, conditional on displacement.</strong> Bachelor&rsquo;s and graduate degree holders achieve nearly identical upward mobility rates as high school graduates. Education likely matters for which destinations are accessible, but that question requires further analysis.</li>
+                <li><strong>Every downward destination is a one-way street.</strong> Food Preparation, Cleaning, Personal Care, and Farming show uniformly compressed, negative wage-change distributions with no upside tail. Workers who land there have essentially no path back to middle-class earnings.</li>
+                <li><strong>Office &amp; Admin is a trap, not an escape.</strong> Despite absorbing the most transition volume (70M weighted), it delivers zero income improvement and modest AI protection. Lateral moves within the clerical sector should not be counted as successful transitions.</li>
+            </ul>
+        </div>
+
+        <p>The central policy challenge is not retraining in the abstract but <strong>routing</strong>: ensuring that displaced workers reach the specific destinations (Management, Engineering, Healthcare Practitioners, Computer &amp; Math, Financial Specialists) that offer both AI protection and income preservation. This requires targeted placement programs, not generic job boards; credentialing pathways into high-upward-mobility destinations, not undifferentiated &ldquo;learn to code&rdquo; initiatives; and early intervention before workers settle into the path of least resistance: the downward route into food service, cleaning, and personal care.</p>
+    </div>
+
+    <p class="footnote"><sup>1</sup> Income is measured using CPS-ASEC wage and salary income (INCWAGE), which captures labor-market compensation. The origin occupation&rsquo;s income is lagged by one year to match ASEC timing (March supplement reports prior-year income). Mobility thresholds of &plusmn;10% are applied to occupation-level weighted averages, not individual-level wage changes. As a robustness check, total personal income (INCTOT) yields a Spearman rank correlation of &rho; = 0.997 with the INCWAGE-based classification.</p>
+
+</body>
+</html>

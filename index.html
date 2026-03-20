@@ -531,6 +531,35 @@
 </head>
 <body>
 
+<!-- Password Gate -->
+<div id="password-gate" style="position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0f2440 0%,#1a365d 100%);display:flex;align-items:center;justify-content:center;font-family:'Raleway',sans-serif;">
+    <div style="text-align:center;color:#fff;max-width:400px;padding:2rem;">
+        <div style="font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;color:#cbd5e0;margin-bottom:.5rem;">Future Impact Group</div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:.5rem;">AI &amp; the American Workforce</h1>
+        <p style="color:#a0aec0;font-size:.9rem;margin-bottom:2rem;">Policy Brief — March 2026</p>
+        <input id="pw-input" type="password" placeholder="Enter password" autocomplete="off"
+            style="width:100%;padding:.75rem 1rem;border:2px solid #2b6cb0;border-radius:8px;background:rgba(255,255,255,.08);color:#fff;font-size:1rem;font-family:'Raleway',sans-serif;text-align:center;outline:none;"
+            onkeydown="if(event.key==='Enter')document.getElementById('pw-btn').click()">
+        <button id="pw-btn" onclick="checkPassword()"
+            style="margin-top:1rem;width:100%;padding:.75rem;background:#2b6cb0;color:#fff;border:none;border-radius:8px;font-size:1rem;font-family:'Raleway',sans-serif;cursor:pointer;transition:background .2s;"
+            onmouseover="this.style.background='#2c5282'" onmouseout="this.style.background='#2b6cb0'">Access Brief</button>
+        <p id="pw-error" style="color:#fc8181;margin-top:.75rem;font-size:.85rem;display:none;">Incorrect password. Please try again.</p>
+    </div>
+</div>
+<script>
+function checkPassword(){
+    var h='9b56b5356c8fd1f261cc61b45f7286f696c682ddd453f80396e1563ea0293778';
+    async function sha256(m){var e=new TextEncoder().encode(m);var d=await crypto.subtle.digest('SHA-256',e);return Array.from(new Uint8Array(d)).map(b=>b.toString(16).padStart(2,'0')).join('');}
+    var v=document.getElementById('pw-input').value;
+    sha256(v).then(function(d){
+        if(d===h){document.getElementById('password-gate').style.display='none';sessionStorage.setItem('fig-auth','1');}
+        else{document.getElementById('pw-error').style.display='block';document.getElementById('pw-input').style.borderColor='#fc8181';}
+    });
+}
+if(sessionStorage.getItem('fig-auth')==='1'){document.getElementById('password-gate').style.display='none';}
+else{document.getElementById('pw-input').focus();}
+</script>
+
 <!-- Mobile nav toggle -->
 <button class="nav-toggle" onclick="document.querySelector('.side-nav').classList.toggle('open')">&#9776;</button>
 

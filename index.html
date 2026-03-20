@@ -548,7 +548,7 @@
 </div>
 <script>
 function checkPassword(){
-    var h='9b56b5356c8fd1f261cc61b45f7286f696c682ddd453f80396e1563ea0293778';
+    var h='40e0c64a1a55f912856f8e1b2ae7ed2ea8b75ea1f51ece5418986d6d88617223';
     async function sha256(m){var e=new TextEncoder().encode(m);var d=await crypto.subtle.digest('SHA-256',e);return Array.from(new Uint8Array(d)).map(b=>b.toString(16).padStart(2,'0')).join('');}
     var v=document.getElementById('pw-input').value;
     sha256(v).then(function(d){
